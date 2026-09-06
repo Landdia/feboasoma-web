@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Feboasoma — Remeras DTF y tazas sublimadas</title>
+<title>Febo Asoma — Remeras DTF y tazas sublimadas</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&display=swap');
 
   :root{
-    --deep:#123A3D;
-    --deep-2:#0D2C2E;
-    --paper:#FBF4E8;
-    --ink:#21201C;
-    --coral:#FF5A45;
-    --coral-dark:#E14730;
-    --gold:#F2B705;
-    --cream:#FBF4E8;
-    --line: rgba(33,32,28,0.16);
+    --deep:#5F7383;
+    --deep-2:#4A5A67;
+    --paper:#F4F0E8;
+    --ink:#1B1B1B;
+    --coral:#FFAF3B;
+    --coral-dark:#C97F14;
+    --gold:#AFA79C;
+    --cream:#FCFAF5;
+    --line: rgba(27,27,27,0.16);
     --radius: 6px;
   }
 
@@ -67,7 +67,7 @@
   .nav-links a:hover{ border-color:var(--coral); }
   .nav-cta{
     background:var(--coral);
-    color:var(--cream);
+    color:var(--ink);
     padding:9px 18px;
     border-radius:999px;
     font-weight:700;
@@ -109,13 +109,13 @@
   .hero p{
     font-size:18px;
     max-width:46ch;
-    color:rgba(251,244,232,0.86);
+    color:rgba(252,250,245,0.86);
     margin-bottom:30px;
   }
   .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; }
   .btn-primary{
     background:var(--coral);
-    color:var(--cream);
+    color:var(--ink);
     padding:14px 26px;
     border-radius:999px;
     font-weight:700;
@@ -134,31 +134,18 @@
     font-size:16px;
     border:2px solid var(--cream);
   }
-  .btn-ghost:hover{ background:rgba(251,244,232,0.1); }
+  .btn-ghost:hover{ background:rgba(252,250,245,0.1); }
 
-  .swatch-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:10px;
+  .hero-logo-wrap{
+    background:var(--cream);
+    border:3px solid var(--ink);
+    border-radius:16px;
+    box-shadow:8px 8px 0 rgba(0,0,0,0.35);
+    padding:36px;
     transform:rotate(-2deg);
+    display:flex; align-items:center; justify-content:center;
   }
-  .swatch{
-    aspect-ratio:1;
-    border-radius:10px;
-    border:2px solid var(--ink);
-    position:relative;
-    overflow:hidden;
-  }
-  .swatch::after{
-    content:"";
-    position:absolute; inset:0;
-    background-image:radial-gradient(rgba(0,0,0,0.18) 1.3px, transparent 1.3px);
-    background-size:9px 9px;
-    mix-blend-mode:multiply;
-  }
-  .s1{background:var(--coral);} .s2{background:var(--gold);} .s3{background:#4E8B8B;}
-  .s4{background:#E7DAC3;} .s5{background:#8C4A3C;} .s6{background:#D9C4E0;}
-  .s7{background:#2E6E63;} .s8{background:var(--cream);}
+  .hero-logo-wrap img{ width:100%; max-width:320px; }
 
   /* ---------- SECTION HEADERS ---------- */
   .section{ padding:76px 0; }
@@ -167,7 +154,7 @@
     gap:24px; margin-bottom:38px; flex-wrap:wrap;
   }
   .section-head h2{ font-size:clamp(30px,4vw,44px); }
-  .section-head p{ max-width:38ch; color:rgba(33,32,28,0.72); margin:0; }
+  .section-head p{ max-width:38ch; color:rgba(27,27,27,0.72); margin:0; }
 
   /* ---------- CATALOG ---------- */
   .group-label{
@@ -204,19 +191,10 @@
   }
   .card-art.photo{ padding:0; background:#fff; }
   .card-art.photo img{ width:100%; height:100%; object-fit:cover; object-position:top center; }
-  .soon-badge{
-    position:absolute; top:10px; left:10px;
-    background:var(--gold); color:var(--ink);
-    font-weight:700; font-size:12px;
-    padding:4px 10px; border-radius:999px;
-    border:2px solid var(--ink);
-  }
-  .card.soon .card-art{ background:var(--paper); }
-  .order-link.soon-link{ background:var(--gold); color:var(--ink); }
-  .order-link.soon-link:hover{ background:#d9a400; }
+
   .card-body{ padding:18px 18px 20px; display:flex; flex-direction:column; gap:8px; flex:1; }
   .card-body h3{ font-family:'Work Sans',sans-serif; font-weight:700; font-size:17px; }
-  .card-body .desc{ font-size:14px; color:rgba(33,32,28,0.7); flex:1; }
+  .card-body .desc{ font-size:14px; color:rgba(27,27,27,0.7); flex:1; }
   .card-foot{ display:flex; align-items:center; justify-content:space-between; margin-top:6px; }
   .price{ font-weight:700; font-size:15px; }
   .order-link{
@@ -228,13 +206,13 @@
 
   /* ---------- PROCESO ---------- */
   .proceso{ background:var(--deep); color:var(--cream); border-top:6px solid var(--ink); border-bottom:6px solid var(--ink); }
-  .proceso .section-head p{ color:rgba(251,244,232,0.75); }
+  .proceso .section-head p{ color:rgba(252,250,245,0.75); }
   .steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
   @media (max-width:760px){ .steps{ grid-template-columns:1fr; } }
-  .step{ border-left:3px solid var(--gold); padding-left:18px; }
-  .step .num{ font-family:'Anton',sans-serif; font-size:34px; color:var(--gold); display:block; margin-bottom:6px; }
+  .step{ border-left:3px solid var(--coral); padding-left:18px; }
+  .step .num{ font-family:'Anton',sans-serif; font-size:34px; color:var(--coral); display:block; margin-bottom:6px; }
   .step h3{ font-family:'Work Sans',sans-serif; font-weight:700; font-size:17px; margin-bottom:6px; }
-  .step p{ font-size:14.5px; color:rgba(251,244,232,0.78); margin:0; }
+  .step p{ font-size:14.5px; color:rgba(252,250,245,0.78); margin:0; }
 
   /* ---------- FOOTER ---------- */
   footer{ padding:56px 0 40px; }
@@ -244,8 +222,18 @@
   }
   .foot-cta h2{ font-size:clamp(28px,4vw,40px); margin-bottom:14px; }
   .foot-links{ display:flex; flex-direction:column; gap:10px; font-weight:600; }
+  .foot-links a{ display:inline-flex; align-items:center; gap:9px; }
+  .foot-links a img{ flex-shrink:0; }
   .foot-links a:hover{ color:var(--coral-dark); }
-  .fine-print{ padding-top:22px; font-size:13px; color:rgba(33,32,28,0.6); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+  .foot-brand{
+    font-family:'Anton', sans-serif;
+    font-size:clamp(22px,3vw,30px);
+    letter-spacing:0.3px;
+    padding:26px 0 6px;
+    color:var(--ink);
+  }
+  .foot-brand span{ color:var(--coral-dark); }
+  .fine-print{ padding-top:10px; font-size:13px; color:rgba(27,27,27,0.6); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
 </style>
 </head>
 <body>
@@ -253,15 +241,15 @@
 <nav class="nav">
   <div class="wrap">
     <div class="brand" style="display:flex; align-items:center; gap:10px;">
-      <img src="images/logo.png" alt="Logo Feboasoma" style="height:34px; width:auto;">
-      Feboasoma
+      <img src="images/logo.png" alt="Logo Febo Asoma" style="height:34px; width:auto;">
+      Febo Asoma
     </div>
     <div class="nav-links">
       <a href="#catalogo">Catálogo</a>
       <a href="#proceso">Cómo pedís</a>
       <a href="#contacto">Contacto</a>
     </div>
-    <a class="nav-cta" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20consultar%20por%20un%20producto" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="nav-cta" href="https://wa.me/5493624000000?text=Hola!%20Quiero%20consultar%20por%20un%20producto" target="_blank" rel="noopener">Pedir por WhatsApp</a>
   </div>
 </nav>
 
@@ -270,15 +258,14 @@
     <div>
       <span class="hero-tag">Hecho a pedido en Chaco</span>
       <h1>Estampá<br>tu idea</h1>
-      <p>Remeras en DTF y tazas sublimadas con el diseño que quieras. Nos escribís por WhatsApp, elegimos talle y color juntos, y lo armamos para vos.</p>
+      <p>Estampados en DTF y tazas sublimadas con el diseño que quieras. Nos escribís por WhatsApp o Instagram, elegimos talle y color juntos, y lo armamos para vos.</p>
       <div class="hero-actions">
-        <a class="btn-primary" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
+        <a class="btn-primary" href="https://wa.me/5493624000000?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
         <a class="btn-ghost" href="#catalogo">Ver catálogo</a>
       </div>
     </div>
-    <div class="swatch-grid" aria-hidden="true">
-      <div class="swatch s1"></div><div class="swatch s2"></div><div class="swatch s3"></div><div class="swatch s4"></div>
-      <div class="swatch s5"></div><div class="swatch s6"></div><div class="swatch s7"></div><div class="swatch s8"></div>
+    <div class="hero-logo-wrap">
+      <img src="images/logo.png" alt="Logo Febo Asoma">
     </div>
   </div>
 </header>
@@ -290,7 +277,7 @@
       <p>Estos son ejemplos de línea — contanos tu idea y la armamos con tu diseño, colores y talle.</p>
     </div>
 
-    <div class="group-label">Remeras DTF</div>
+    <div class="group-label">Remeras estampadas en DTF</div>
     <div class="grid">
 
       <div class="card">
@@ -302,7 +289,7 @@
           <p class="desc">Estampa DTF en la espalda, algodón blanco.</p>
           <div class="card-foot">
             <span class="price">Consultar precio</span>
-            <a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%20Malvinas%20blanca" target="_blank" rel="noopener">Pedir</a>
+            <a class="order-link" href="https://wa.me/5493624000000?text=Hola!%20Quiero%20pedir%20la%20remera%20Malvinas%20blanca" target="_blank" rel="noopener">Pedir</a>
           </div>
         </div>
       </div>
@@ -316,7 +303,7 @@
           <p class="desc">Mismo diseño, en algodón negro.</p>
           <div class="card-foot">
             <span class="price">Consultar precio</span>
-            <a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%20Malvinas%20negra" target="_blank" rel="noopener">Pedir</a>
+            <a class="order-link" href="https://wa.me/5493624000000?text=Hola!%20Quiero%20pedir%20la%20remera%20Malvinas%20negra" target="_blank" rel="noopener">Pedir</a>
           </div>
         </div>
       </div>
@@ -330,7 +317,7 @@
           <p class="desc">Estampa gráfica al frente sobre algodón negro.</p>
           <div class="card-foot">
             <span class="price">Consultar precio</span>
-            <a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%20Charly" target="_blank" rel="noopener">Pedir</a>
+            <a class="order-link" href="https://wa.me/5493624000000?text=Hola!%20Quiero%20pedir%20la%20remera%20Charly" target="_blank" rel="noopener">Pedir</a>
           </div>
         </div>
       </div>
@@ -344,7 +331,7 @@
           <p class="desc">Diseño con frase al frente, algodón blanco.</p>
           <div class="card-foot">
             <span class="price">Consultar precio</span>
-            <a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%20Contra%20el%20trabajo%20y%20el%20capital" target="_blank" rel="noopener">Pedir</a>
+            <a class="order-link" href="https://wa.me/5493624000000?text=Hola!%20Quiero%20pedir%20la%20remera%20Contra%20el%20trabajo%20y%20el%20capital" target="_blank" rel="noopener">Pedir</a>
           </div>
         </div>
       </div>
@@ -358,14 +345,14 @@
           <p class="desc">Estampa al frente, algodón blanco.</p>
           <div class="card-foot">
             <span class="price">Consultar precio</span>
-            <a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%20Maradona" target="_blank" rel="noopener">Pedir</a>
+            <a class="order-link" href="https://wa.me/5493624000000?text=Hola!%20Quiero%20pedir%20la%20remera%20Maradona" target="_blank" rel="noopener">Pedir</a>
           </div>
         </div>
       </div>
 
     </div>
 
-    <div class="group-label">Tazas sublimadas</div>
+    <div class="group-label">Tazas de cerámica sublimadas</div>
     <div class="grid">
 
       <div class="card">
@@ -377,53 +364,56 @@
           <p class="desc">Sublimado full color, resistente al lavado. Este es un ejemplo — la armamos con el diseño, foto o frase que quieras.</p>
           <div class="card-foot">
             <span class="price">Consultar precio</span>
-            <a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20una%20taza%20personalizada" target="_blank" rel="noopener">Pedir</a>
+            <a class="order-link" href="https://wa.me/5493624000000?text=Hola!%20Quiero%20pedir%20una%20taza%20personalizada" target="_blank" rel="noopener">Pedir</a>
           </div>
         </div>
       </div>
 
     </div>
 
-    <div class="group-label">Próximamente</div>
+    <div class="group-label">Buzo estampadas en DTF</div>
     <div class="grid">
 
-      <div class="card soon">
+      <div class="card">
         <div class="card-art">
-          <span class="soon-badge">Próximamente</span>
-          <svg viewBox="0 0 160 160" width="120" height="120">
-            <defs><pattern id="dotsCap" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="1.3" cy="1.3" r="1.3" fill="rgba(0,0,0,0.18)"/></pattern></defs>
-            <path d="M20 95 a60 45 0 0 1 120 0 Z" fill="#4E8B8B" stroke="#21201C" stroke-width="3"/>
-            <path d="M20 95 a60 45 0 0 1 120 0 Z" fill="url(#dotsCap)"/>
-            <path d="M118 90 q30 2 34 14 q-18 6 -36 -2 Z" fill="#4E8B8B" stroke="#21201C" stroke-width="3"/>
-            <rect x="15" y="93" width="130" height="8" rx="4" fill="#21201C"/>
-          </svg>
-        </div>
-        <div class="card-body">
-          <h3>Gorra con estampa DTF</h3>
-          <p class="desc">Gorras personalizadas con tu diseño al frente. Ya estamos preparando la línea.</p>
-          <div class="card-foot">
-            <span class="price">Muy pronto</span>
-            <a class="order-link soon-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20que%20me%20avisen%20cuando%20tengan%20gorras%20DTF" target="_blank" rel="noopener">Avisenme</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="card soon">
-        <div class="card-art">
-          <span class="soon-badge">Próximamente</span>
           <svg viewBox="0 0 160 160" width="120" height="120">
             <defs><pattern id="dotsHoodie" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="1.3" cy="1.3" r="1.3" fill="rgba(0,0,0,0.18)"/></pattern></defs>
-            <path d="M45 22 L65 14 A18 18 0 0 0 95 14 L115 22 L138 48 L120 60 L120 145 L40 145 L40 60 L22 48 Z" fill="#F2B705" stroke="#21201C" stroke-width="3"/>
+            <path d="M45 22 L65 14 A18 18 0 0 0 95 14 L115 22 L138 48 L120 60 L120 145 L40 145 L40 60 L22 48 Z" fill="var(--coral)" stroke="var(--ink)" stroke-width="3"/>
             <path d="M45 22 L65 14 A18 18 0 0 0 95 14 L115 22 L138 48 L120 60 L120 145 L40 145 L40 60 L22 48 Z" fill="url(#dotsHoodie)"/>
-            <rect x="70" y="80" width="20" height="24" rx="4" fill="none" stroke="#21201C" stroke-width="3"/>
+            <rect x="70" y="80" width="20" height="24" rx="4" fill="none" stroke="var(--ink)" stroke-width="3"/>
           </svg>
         </div>
         <div class="card-body">
           <h3>Buzo canguro DTF</h3>
-          <p class="desc">Buzos con estampa personalizada, ideales para el invierno. En camino.</p>
+          <p class="desc">Buzo canguro con estampa personalizada, ideal para el invierno.</p>
           <div class="card-foot">
-            <span class="price">Muy pronto</span>
-            <a class="order-link soon-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20que%20me%20avisen%20cuando%20tengan%20buzos%20canguro%20DTF" target="_blank" rel="noopener">Avisenme</a>
+            <span class="price">Consultar precio</span>
+            <a class="order-link" href="https://wa.me/5493624000000?text=Hola!%20Quiero%20consultar%20por%20un%20buzo%20canguro%20DTF" target="_blank" rel="noopener">Pedir</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="group-label">Gorras estampadas en DTF</div>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-art">
+          <svg viewBox="0 0 160 160" width="120" height="120">
+            <defs><pattern id="dotsCap" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="1.3" cy="1.3" r="1.3" fill="rgba(0,0,0,0.18)"/></pattern></defs>
+            <path d="M20 95 a60 45 0 0 1 120 0 Z" fill="var(--gold)" stroke="var(--ink)" stroke-width="3"/>
+            <path d="M20 95 a60 45 0 0 1 120 0 Z" fill="url(#dotsCap)"/>
+            <path d="M118 90 q30 2 34 14 q-18 6 -36 -2 Z" fill="var(--gold)" stroke="var(--ink)" stroke-width="3"/>
+            <rect x="15" y="93" width="130" height="8" rx="4" fill="var(--ink)"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <h3>Gorra con estampa DTF</h3>
+          <p class="desc">Gorra personalizada con tu diseño al frente.</p>
+          <div class="card-foot">
+            <span class="price">Consultar precio</span>
+            <a class="order-link" href="https://wa.me/5493624000000?text=Hola!%20Quiero%20consultar%20por%20una%20gorra%20DTF" target="_blank" rel="noopener">Pedir</a>
           </div>
         </div>
       </div>
@@ -463,16 +453,16 @@
     <div class="foot-grid">
       <div class="foot-cta">
         <h2>¿Le ponemos<br>tu idea?</h2>
-        <a class="btn-primary" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener" style="border-color:var(--ink); box-shadow:4px 4px 0 var(--ink); color:var(--cream);">Escribinos por WhatsApp →</a>
+        <a class="btn-primary" href="https://wa.me/5493624000000?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener" style="border-color:var(--ink); box-shadow:4px 4px 0 var(--ink); color:var(--ink);">Escribinos por WhatsApp →</a>
       </div>
       <div class="foot-links">
-        <a href="https://instagram.com/feboasoma_ch" target="_blank" rel="noopener">Instagram — @feboasoma_ch</a>
-        <a href="https://wa.me/5493624046282" target="_blank" rel="noopener">WhatsApp</a>
-        <span style="font-weight:500; color:rgba(33,32,28,0.65);">Resistencia, Chaco</span>
+        <a href="https://instagram.com/feboasoma_ch" target="_blank" rel="noopener"><img src="images/instagram-icon.png" alt="" width="22" height="22">Instagram — @feboasoma_ch</a>
+        <a href="https://wa.me/5493624000000" target="_blank" rel="noopener"><img src="images/whatsapp-icon.png" alt="" width="22" height="22">WhatsApp</a>
+        <span style="font-weight:500; color:rgba(27,27,27,0.65);">Resistencia, Chaco</span>
       </div>
     </div>
+    <div class="foot-brand">Febo Asoma <span>—</span> estampados personalizados</div>
     <div class="fine-print">
-      <span>Feboasoma — remeras DTF y tazas sublimadas hechas a pedido.</span>
       <span>Precios sujetos a diseño y cantidad.</span>
     </div>
   </div>
