@@ -5,251 +5,215 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Febo Asoma — Remeras DTF y tazas sublimadas</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
   :root{
-    --deep:#5F7383;
-    --deep-2:#4A5A67;
-    --paper:#F4F0E8;
-    --ink:#1B1B1B;
-    --coral:#FFAF3B;
-    --coral-dark:#C97F14;
-    --gold:#AFA79C;
-    --cream:#FCFAF5;
-    --line: rgba(27,27,27,0.16);
-    --radius: 6px;
+    --bg:#FFF6E9;
+    --ink:#241C10;
+    --muted:rgba(36,28,16,0.66);
+    --orange:#FFAF3B;
+    --orange-dark:#E0921A;
+    --slate:#5F7383;
+    --slate-dark:#4A5A67;
+    --taupe:#AFA79C;
+    --white:#FFFFFF;
+    --radius-lg:28px;
+    --radius-md:20px;
   }
 
   *{ box-sizing:border-box; }
   html{ scroll-behavior:smooth; }
   body{
     margin:0;
-    background:var(--paper);
+    background:var(--bg);
     color:var(--ink);
-    font-family:'Work Sans', sans-serif;
+    font-family:'Inter', sans-serif;
     font-size:16px;
-    line-height:1.55;
+    line-height:1.6;
   }
   h1,h2,h3{
-    font-family:'Anton', sans-serif;
-    font-weight:400;
-    letter-spacing:0.3px;
+    font-family:'Poppins', sans-serif;
+    font-weight:800;
     margin:0;
   }
   a{ color:inherit; text-decoration:none; }
   img,svg{ display:block; max-width:100%; }
-  .wrap{
-    max-width:1080px;
-    margin:0 auto;
-    padding:0 28px;
-  }
-  @media (prefers-reduced-motion: reduce){
-    *{ transition:none !important; animation:none !important; }
-  }
+  .wrap{ max-width:1120px; margin:0 auto; padding:0 32px; }
+  @media (prefers-reduced-motion: reduce){ *{ transition:none !important; animation:none !important; } }
 
   /* ---------- NAV ---------- */
-  .nav{
-    position:sticky; top:0; z-index:20;
-    background:var(--paper);
-    border-bottom:2px solid var(--ink);
-  }
+  .nav{ position:sticky; top:0; z-index:20; background:var(--bg); }
   .nav .wrap{
     display:flex; align-items:center; justify-content:space-between;
-    padding-top:16px; padding-bottom:16px;
+    padding-top:20px; padding-bottom:20px;
   }
-  .brand{
-    display:flex; align-items:center;
-  }
-  .brand img{ height:46px; width:auto; }
-  .nav-links{ display:flex; gap:26px; font-weight:600; font-size:15px; }
-  .nav-links a{ border-bottom:2px solid transparent; padding-bottom:2px; }
-  .nav-links a:hover{ border-color:var(--coral); }
+  .brand img{ height:60px; width:auto; }
+  .nav-links{ display:flex; gap:30px; font-weight:600; font-size:15px; }
+  .nav-links a{ opacity:0.82; }
+  .nav-links a:hover{ opacity:1; }
   .nav-cta{
-    background:var(--coral);
-    color:var(--ink);
-    padding:9px 18px;
-    border-radius:999px;
-    font-weight:700;
-    font-size:14px;
-    border:2px solid var(--ink);
-    box-shadow:3px 3px 0 var(--ink);
+    background:var(--ink); color:#fff;
+    padding:11px 22px; border-radius:999px;
+    font-weight:600; font-size:14px;
+    transition:transform .15s ease, box-shadow .15s ease;
   }
-  .nav-cta:hover{ transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
-  @media (max-width:720px){ .nav-links{ display:none; } }
+  .nav-cta:hover{ transform:translateY(-2px); box-shadow:0 10px 20px rgba(36,28,16,0.25); }
+  @media (max-width:760px){ .nav-links{ display:none; } }
 
   /* ---------- HERO ---------- */
-  .hero{
-    background:var(--deep);
-    color:var(--cream);
-    padding:72px 0 64px;
-    border-bottom:6px solid var(--ink);
-    position:relative;
-    overflow:hidden;
-  }
-  .hero::before{
-    content:"";
-    position:absolute; inset:0;
-    background-image:radial-gradient(rgba(255,255,255,0.12) 1.6px, transparent 1.6px);
-    background-size:16px 16px;
-    pointer-events:none;
-  }
+  .hero{ position:relative; overflow:hidden; padding:36px 0 96px; }
+  .blob{ position:absolute; border-radius:50%; z-index:0; filter:blur(80px); }
+  .blob-orange{ width:480px; height:480px; background:var(--orange); top:-200px; right:-140px; opacity:0.55; }
+  .blob-slate{ width:340px; height:340px; background:var(--slate); bottom:-160px; left:-120px; opacity:0.4; }
   .hero .wrap{
-    display:grid;
-    grid-template-columns:1.15fr 0.85fr;
-    gap:48px;
-    align-items:center;
-    position:relative;
+    position:relative; z-index:1;
+    display:grid; grid-template-columns:1.1fr 0.9fr;
+    gap:56px; align-items:center;
   }
-  @media (max-width:760px){
+  @media (max-width:820px){
     .hero .wrap{ grid-template-columns:1fr; }
-    .hero-logo-wrap{ order:-1; max-width:220px; margin:0 auto 8px; }
+    .hero-photo{ order:-1; max-width:260px; margin:0 auto; }
   }
   .hero-tag{
-    display:inline-block;
-    background:var(--coral);
-    color:var(--ink);
-    font-weight:700;
-    font-size:13px;
-    padding:5px 12px;
-    border-radius:999px;
-    margin-bottom:18px;
-    border:2px solid var(--ink);
+    display:inline-block; background:var(--ink); color:#fff;
+    font-weight:600; font-size:13px; padding:7px 16px;
+    border-radius:999px; margin-bottom:20px;
   }
-  .hero h1{
-    font-size:clamp(40px, 6vw, 68px);
-    line-height:0.98;
-    margin-bottom:20px;
-  }
-  .hero p{
-    font-size:18px;
-    max-width:46ch;
-    color:rgba(252,250,245,0.86);
-    margin-bottom:30px;
-  }
+  .hero h1{ font-size:clamp(40px,6vw,60px); line-height:1.04; margin-bottom:22px; }
+  .hero h1 .accent{ color:var(--orange); -webkit-text-stroke:2px var(--ink); }
+  .hero p{ font-size:17.5px; max-width:44ch; color:var(--muted); margin-bottom:32px; font-weight:500; }
   .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; }
   .btn-primary{
-    background:var(--coral);
-    color:var(--ink);
-    padding:14px 26px;
-    border-radius:999px;
-    font-weight:700;
-    font-size:16px;
-    border:2px solid var(--ink);
-    box-shadow:4px 4px 0 var(--ink);
+    background:var(--orange); color:var(--ink);
+    padding:16px 30px; border-radius:999px;
+    font-weight:700; font-size:16px;
+    box-shadow:0 12px 26px rgba(255,175,59,0.45);
     display:inline-flex; align-items:center; gap:8px;
+    transition:transform .15s ease, box-shadow .15s ease;
   }
-  .btn-primary:hover{ transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--ink); }
-  .btn-ghost{
-    background:transparent;
-    color:var(--cream);
-    padding:14px 22px;
-    border-radius:999px;
-    font-weight:700;
-    font-size:16px;
-    border:2px solid var(--cream);
+  .btn-primary:hover{ transform:translateY(-3px); box-shadow:0 16px 30px rgba(255,175,59,0.55); }
+  .btn-secondary{
+    background:#fff; color:var(--ink);
+    padding:16px 26px; border-radius:999px;
+    font-weight:700; font-size:16px;
+    box-shadow:0 8px 18px rgba(36,28,16,0.10);
+    transition:transform .15s ease, box-shadow .15s ease;
   }
-  .btn-ghost:hover{ background:rgba(252,250,245,0.1); }
+  .btn-secondary:hover{ transform:translateY(-3px); }
 
-  .hero-logo-wrap{
-    background:var(--cream);
-    border:3px solid var(--ink);
-    border-radius:16px;
-    box-shadow:8px 8px 0 rgba(0,0,0,0.35);
-    padding:40px;
-    transform:rotate(-2deg);
+  .hero-photo{
     display:flex; align-items:center; justify-content:center;
     position:relative;
   }
-  .hero-logo-wrap::after{
-    content:"";
-    position:absolute; top:-14px; right:-14px;
-    width:34px; height:34px; border-radius:50%;
-    background:var(--coral);
-    border:3px solid var(--ink);
+  .hero-photo::before{
+    content:""; position:absolute;
+    width:320px; height:320px; border-radius:50%;
+    background:radial-gradient(circle, rgba(255,175,59,0.28), rgba(255,175,59,0) 72%);
   }
-  .hero-logo-wrap img{ width:100%; max-width:340px; }
+  .hero-photo img{
+    width:100%; max-width:360px; position:relative;
+    filter:drop-shadow(0 10px 16px rgba(36,28,16,0.16));
+  }
 
   /* ---------- SECTION HEADERS ---------- */
-  .section{ padding:76px 0; }
+  .section{ padding:70px 0; }
   .section-head{
     display:flex; justify-content:space-between; align-items:flex-end;
-    gap:24px; margin-bottom:38px; flex-wrap:wrap;
+    gap:24px; margin-bottom:40px; flex-wrap:wrap;
   }
-  .section-head h2{ font-size:clamp(30px,4vw,44px); }
-  .section-head p{ max-width:38ch; color:rgba(27,27,27,0.72); margin:0; }
+  .section-head h2{ font-size:clamp(28px,4vw,40px); }
+  .section-head p{ max-width:38ch; color:var(--muted); margin:0; font-weight:500; }
 
   /* ---------- CATALOG ---------- */
   .group-label{
+    display:flex; align-items:center; gap:9px;
     font-weight:700; font-size:14px; text-transform:uppercase;
-    letter-spacing:0.06em; color:var(--coral-dark);
-    margin:44px 0 18px;
+    letter-spacing:0.05em; color:var(--orange-dark);
+    margin:48px 0 20px;
+  }
+  .group-label::before{
+    content:""; width:9px; height:9px; border-radius:50%;
+    background:var(--orange);
   }
   .group-label:first-of-type{ margin-top:0; }
-  .grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:22px;
-  }
+  .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
   @media (max-width:860px){ .grid{ grid-template-columns:repeat(2,1fr);} }
   @media (max-width:560px){ .grid{ grid-template-columns:1fr;} }
 
   .card{
-    background:var(--cream);
-    border:2px solid var(--ink);
-    border-radius:var(--radius);
-    box-shadow:5px 5px 0 var(--ink);
+    background:var(--white);
+    border-radius:var(--radius-md);
+    box-shadow:0 12px 28px rgba(36,28,16,0.08);
     overflow:hidden;
     display:flex; flex-direction:column;
-    transition:transform .15s ease, box-shadow .15s ease;
+    transition:transform .18s ease, box-shadow .18s ease;
   }
-  .card:hover{ transform:translate(-3px,-3px); box-shadow:8px 8px 0 var(--ink); }
+  .card:hover{ transform:translateY(-6px); box-shadow:0 20px 36px rgba(36,28,16,0.14); }
   .card-art{
     aspect-ratio:4/3;
-    display:flex; align-items:center; justify-content:center;
-    border-bottom:2px solid var(--ink);
-    padding:22px;
-    position:relative;
+    background:#fff;
     overflow:hidden;
   }
-  .card-art.photo{ padding:0; background:#fff; }
-  .card-art.photo img{ width:100%; height:100%; object-fit:cover; object-position:top center; }
+  .card-art img{ width:100%; height:100%; object-fit:cover; object-position:top center; }
 
-  .card-body{ padding:18px 18px 20px; display:flex; flex-direction:column; gap:8px; flex:1; }
-  .card-body h3{ font-family:'Work Sans',sans-serif; font-weight:700; font-size:17px; }
-  .card-body .desc{ font-size:14px; color:rgba(27,27,27,0.7); flex:1; }
-  .card-foot{ display:flex; align-items:center; justify-content:space-between; margin-top:6px; }
-  .price{ font-weight:700; font-size:15px; }
+  .card-body{ padding:20px 20px 22px; display:flex; flex-direction:column; gap:8px; flex:1; }
+  .card-body h3{ font-family:'Inter',sans-serif; font-weight:700; font-size:16.5px; }
+  .card-body .desc{ font-size:14px; color:var(--muted); flex:1; }
+  .card-foot{ display:flex; align-items:center; justify-content:space-between; margin-top:8px; }
+  .price{ font-weight:700; font-size:14.5px; }
   .order-link{
     font-weight:700; font-size:13px;
-    background:var(--ink); color:var(--cream);
-    padding:8px 14px; border-radius:999px;
+    background:var(--ink); color:#fff;
+    padding:9px 16px; border-radius:999px;
+    transition:background .15s ease;
   }
-  .order-link:hover{ background:var(--coral-dark); }
+  .order-link:hover{ background:var(--orange-dark); }
+  .see-more{ margin-top:16px; }
+  .see-more a{
+    display:inline-flex; align-items:center; gap:6px;
+    font-weight:600; font-size:14px; color:var(--orange-dark);
+  }
+  .see-more a:hover{ text-decoration:underline; }
 
   /* ---------- PROCESO ---------- */
-  .proceso{ background:var(--deep); color:var(--cream); border-top:6px solid var(--ink); border-bottom:6px solid var(--ink); }
-  .proceso .section-head p{ color:rgba(252,250,245,0.75); }
-  .steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+  .proceso-panel{
+    background:var(--slate); color:#fff;
+    border-radius:36px;
+    padding:60px 44px;
+  }
+  .proceso-panel .section-head p{ color:rgba(255,255,255,0.78); }
+  .steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
   @media (max-width:760px){ .steps{ grid-template-columns:1fr; } }
-  .step{ border-left:3px solid var(--coral); padding-left:18px; }
-  .step .num{ font-family:'Anton',sans-serif; font-size:34px; color:var(--coral); display:block; margin-bottom:6px; }
-  .step h3{ font-family:'Work Sans',sans-serif; font-weight:700; font-size:17px; margin-bottom:6px; }
-  .step p{ font-size:14.5px; color:rgba(252,250,245,0.78); margin:0; }
+  .step .num{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:42px; height:42px; border-radius:50%;
+    background:var(--orange); color:var(--ink);
+    font-family:'Poppins',sans-serif; font-weight:800; font-size:18px;
+    margin-bottom:14px;
+  }
+  .step h3{ font-family:'Inter',sans-serif; font-weight:700; font-size:17px; margin-bottom:6px; }
+  .step p{ font-size:14.5px; color:rgba(255,255,255,0.78); margin:0; }
 
   /* ---------- FOOTER ---------- */
-  footer{ padding:56px 0 40px; }
+  footer{ padding:60px 0 44px; }
   .foot-grid{
-    display:flex; justify-content:space-between; align-items:flex-start;
-    gap:24px; flex-wrap:wrap; padding-bottom:30px; border-bottom:2px solid var(--line);
+    display:flex; justify-content:space-between; align-items:center;
+    gap:32px; flex-wrap:wrap; padding-bottom:36px;
   }
-  .foot-cta h2{ font-size:clamp(28px,4vw,40px); margin-bottom:14px; }
-  .foot-links{ display:flex; flex-direction:column; gap:10px; font-weight:600; }
-  .foot-links a{ display:inline-flex; align-items:center; gap:9px; }
-  .foot-links a img{ flex-shrink:0; }
-  .foot-links a:hover{ color:var(--coral-dark); }
-  .foot-cta{ display:flex; flex-direction:column; align-items:flex-start; gap:20px; }
-  .foot-logo{ height:64px; width:auto; }
-  .fine-print{ padding-top:22px; font-size:13px; color:rgba(27,27,27,0.6); }
+  .foot-cta{ display:flex; flex-direction:column; align-items:flex-start; gap:22px; }
+  .foot-logo{ height:110px; width:auto; }
+  .foot-links{ display:flex; flex-direction:column; align-items:flex-end; gap:14px; }
+  .foot-icons{ display:flex; gap:12px; }
+  .foot-icons a{
+    width:48px; height:48px; border-radius:50%;
+    background:#fff; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 18px rgba(36,28,16,0.10);
+    transition:transform .15s ease;
+  }
+  .foot-icons a:hover{ transform:translateY(-3px); }
+  .foot-icons img{ width:24px; height:24px; }
+  .foot-location{ font-weight:600; font-size:14px; color:var(--muted); }
+  .fine-print{ padding-top:22px; border-top:1px solid rgba(36,28,16,0.12); font-size:13px; color:var(--muted); text-align:center; }
 </style>
 </head>
 <body>
@@ -269,17 +233,19 @@
 </nav>
 
 <header class="hero">
+  <div class="blob blob-orange"></div>
+  <div class="blob blob-slate"></div>
   <div class="wrap">
     <div>
       <span class="hero-tag">Hecho a pedido en Chaco</span>
-      <h1>Estampamos<br>tu idea</h1>
+      <h1>Estampamos <span class="accent">tu idea</span></h1>
       <p>Estampados en DTF y sublimación de tazas con el diseño que quieras. Nos escribís por WhatsApp o Instagram, elegimos talle y color juntos, y lo armamos para vos.</p>
       <div class="hero-actions">
         <a class="btn-primary" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">Pedir por WhatsApp →</a>
-        <a class="btn-ghost" href="#catalogo">Ver catálogo</a>
+        <a class="btn-secondary" href="#catalogo">Ver catálogo</a>
       </div>
     </div>
-    <div class="hero-logo-wrap">
+    <div class="hero-photo">
       <img src="images/logo.png" alt="Logo Febo Asoma">
     </div>
   </div>
@@ -296,82 +262,84 @@
     <div class="grid">
 
       <div class="card">
-        <div class="card-art photo">
+        <div class="card-art">
           <img src="images/remera-malvinas-blanca.jpg" alt="Remera blanca estampada 'Las Malvinas son Argentinas' en la espalda">
         </div>
         <div class="card-body">
-          <h3>Remera "Malvinas" blanca</h3>
+          <h3>Remera "Las Malvinas son Argentinas"</h3>
           <p class="desc">Estampa DTF en la espalda, algodón blanco.</p>
           <div class="card-foot">
             <span class="price">Consultar precio</span>
-            <a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%20Malvinas%20blanca" target="_blank" rel="noopener">Pedir</a>
+            <a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%20Las%20Malvinas%20son%20Argentinas" target="_blank" rel="noopener">Pedir</a>
           </div>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-art photo">
-          <img src="images/remera-malvinas-negra.jpg" alt="Remera negra estampada 'Las Malvinas son Argentinas' en la espalda">
+        <div class="card-art">
+          <img src="images/remera-messi-negra.jpg" alt="Remera negra estampada con Lionel Messi en la espalda">
         </div>
         <div class="card-body">
-          <h3>Remera "Malvinas" negra</h3>
-          <p class="desc">Mismo diseño, en algodón negro.</p>
+          <h3>Remera "Lionel Messi"</h3>
+          <p class="desc">Estampa DTF en la espalda, algodón negro.</p>
           <div class="card-foot">
             <span class="price">Consultar precio</span>
-            <a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%20Malvinas%20negra" target="_blank" rel="noopener">Pedir</a>
+            <a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%20Lionel%20Messi" target="_blank" rel="noopener">Pedir</a>
           </div>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-art photo">
-          <img src="images/remera-charly-negra.jpg" alt="Remera negra con estampa gráfica en el frente">
+        <div class="card-art">
+          <img src="images/remera-maradona-blanca.jpg" alt="Remera blanca con estampa de Diego Maradona">
         </div>
         <div class="card-body">
-          <h3>Remera "Charly" negra</h3>
-          <p class="desc">Estampa gráfica al frente sobre algodón negro.</p>
+          <h3>Remera "Diego Maradona"</h3>
+          <p class="desc">Estampa al frente en DTF, algodón blanco.</p>
           <div class="card-foot">
             <span class="price">Consultar precio</span>
-            <a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%20Charly" target="_blank" rel="noopener">Pedir</a>
+            <a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%20Diego%20Maradona" target="_blank" rel="noopener">Pedir</a>
           </div>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-art photo">
-          <img src="images/remera-contraeltrabajo-blanca.jpg" alt="Remera blanca con frase 'Contra el trabajo y el capital, la jubilación a los 18 años'">
+        <div class="card-art">
+          <img src="images/remera-charly-negra.jpg" alt="Remera negra con estampa de Charly García">
         </div>
         <div class="card-body">
-          <h3>Remera "Contra el trabajo y el capital"</h3>
-          <p class="desc">Diseño con frase al frente, algodón blanco.</p>
+          <h3>Remera "Charly García"</h3>
+          <p class="desc">Estampa al frente en DTF, algodón negro.</p>
           <div class="card-foot">
             <span class="price">Consultar precio</span>
-            <a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%20Contra%20el%20trabajo%20y%20el%20capital" target="_blank" rel="noopener">Pedir</a>
+            <a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%20Charly%20Garc%C3%ADa" target="_blank" rel="noopener">Pedir</a>
           </div>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-art photo">
-          <img src="images/remera-maradona-blanca.jpg" alt="Remera blanca con estampa de Maradona">
+        <div class="card-art">
+          <img src="images/remera-argentina-blanca.jpg" alt="Remera blanca con estampa de íconos de Argentina">
         </div>
         <div class="card-body">
-          <h3>Remera "Maradona" blanca</h3>
-          <p class="desc">Estampa al frente, algodón blanco.</p>
+          <h3>Remera "Argentina"</h3>
+          <p class="desc">Estampa al frente en DTF, algodón blanco.</p>
           <div class="card-foot">
             <span class="price">Consultar precio</span>
-            <a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%20Maradona" target="_blank" rel="noopener">Pedir</a>
+            <a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%20Argentina" target="_blank" rel="noopener">Pedir</a>
           </div>
         </div>
       </div>
 
     </div>
 
+    <div class="see-more"><a href="https://instagram.com/feboasoma_ch" target="_blank" rel="noopener">Ver más remeras en Instagram →</a></div>
+
     <div class="group-label">Tazas de cerámica sublimadas</div>
     <div class="grid">
 
       <div class="card">
-        <div class="card-art photo">
+        <div class="card-art">
           <img src="images/taza-pollos-hermanos.jpg" alt="Taza sublimada con diseño 'Los Pollos Hermanos'">
         </div>
         <div class="card-body">
@@ -386,11 +354,13 @@
 
     </div>
 
+    <div class="see-more"><a href="https://instagram.com/feboasoma_ch" target="_blank" rel="noopener">Ver más tazas en Instagram →</a></div>
+
     <div class="group-label">Buzo estampadas en DTF</div>
     <div class="grid">
 
       <div class="card">
-        <div class="card-art photo">
+        <div class="card-art">
           <img src="images/buzo-negro.jpg" alt="Buzo canguro negro con estampa DTF">
         </div>
         <div class="card-body">
@@ -405,11 +375,13 @@
 
     </div>
 
+    <div class="see-more"><a href="https://instagram.com/feboasoma_ch" target="_blank" rel="noopener">Ver más buzos en Instagram →</a></div>
+
     <div class="group-label">Gorras estampadas en DTF</div>
     <div class="grid">
 
       <div class="card">
-        <div class="card-art photo">
+        <div class="card-art">
           <img src="images/gorra-negra.jpg" alt="Gorra negra con estampa DTF">
         </div>
         <div class="card-body">
@@ -423,30 +395,34 @@
       </div>
 
     </div>
+
+    <div class="see-more"><a href="https://instagram.com/feboasoma_ch" target="_blank" rel="noopener">Ver más gorras en Instagram →</a></div>
   </div>
 </section>
 
-<section class="section proceso" id="proceso">
+<section class="section" id="proceso">
   <div class="wrap">
-    <div class="section-head">
-      <h2>¿Cómo pedir?</h2>
-      <p>Todo el pedido se coordina por WhatsApp.</p>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <span class="num">1</span>
-        <h3>Elegís el diseño</h3>
-        <p>Mirás el catálogo o nos mandás tu propia idea, foto o frase.</p>
+    <div class="proceso-panel">
+      <div class="section-head">
+        <h2>¿Cómo pedir?</h2>
+        <p>Todo el pedido se coordina por WhatsApp.</p>
       </div>
-      <div class="step">
-        <span class="num">2</span>
-        <h3>Coordinamos por WhatsApp</h3>
-        <p>Definimos talle, color y cantidad, y te confirmamos el precio final.</p>
-      </div>
-      <div class="step">
-        <span class="num">3</span>
-        <h3>Producción y entrega</h3>
-        <p>Lo armamos y coordinamos entrega en Resistencia y alrededores, o envío.</p>
+      <div class="steps">
+        <div class="step">
+          <span class="num">1</span>
+          <h3>Elegís el diseño</h3>
+          <p>Mirás el catálogo o nos mandás tu propia idea, foto o frase.</p>
+        </div>
+        <div class="step">
+          <span class="num">2</span>
+          <h3>Coordinamos por WhatsApp</h3>
+          <p>Definimos talle, color y cantidad, y te confirmamos el precio final.</p>
+        </div>
+        <div class="step">
+          <span class="num">3</span>
+          <h3>Producción y entrega</h3>
+          <p>Lo armamos y coordinamos entrega en Resistencia y alrededores, o envío.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -457,17 +433,17 @@
     <div class="foot-grid">
       <div class="foot-cta">
         <img src="images/logo.png" alt="Logo Febo Asoma" class="foot-logo">
-        <a class="btn-primary" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener" style="border-color:var(--ink); box-shadow:4px 4px 0 var(--ink); color:var(--ink);">Escribinos por WhatsApp →</a>
+        <a class="btn-primary" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">Escribinos por WhatsApp →</a>
       </div>
       <div class="foot-links">
-        <a href="https://instagram.com/feboasoma_ch" target="_blank" rel="noopener"><img src="images/instagram-icon.png" alt="" width="22" height="22">Instagram — @feboasoma_ch</a>
-        <a href="https://wa.me/5493624046282" target="_blank" rel="noopener"><img src="images/whatsapp-icon.png" alt="" width="22" height="22">WhatsApp</a>
-        <span style="font-weight:500; color:rgba(27,27,27,0.65);">Resistencia, Chaco</span>
+        <div class="foot-icons">
+          <a href="https://instagram.com/feboasoma_ch" target="_blank" rel="noopener"><img src="images/instagram-icon.png" alt="Instagram"></a>
+          <a href="https://wa.me/5493624046282" target="_blank" rel="noopener"><img src="images/whatsapp-icon.png" alt="WhatsApp"></a>
+        </div>
+        <span class="foot-location">Resistencia, Chaco</span>
       </div>
     </div>
-    <div class="fine-print">
-      <span>Febo Asoma - estampados personalizados</span>
-    </div>
+    <div class="fine-print">Febo Asoma - estampados personalizados</div>
   </div>
 </footer>
 
