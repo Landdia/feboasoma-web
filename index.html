@@ -100,7 +100,10 @@
   .step p{ font-size:14.5px; color:rgba(255,255,255,0.75); margin:0; }
 
   footer{ padding:56px 0 40px; }
-  .foot-contact{ display:flex; flex-direction:column; align-items:flex-start; gap:20px; padding-bottom:32px; }
+  .foot-contact{ display:flex; justify-content:space-between; align-items:center; gap:24px; padding-bottom:32px; flex-wrap:wrap; }
+  .foot-info{ display:flex; flex-direction:column; gap:20px; }
+  @media (max-width:600px){
+  .foot-contact{ flex-direction:column; align-items:flex-start; }
   .foot-contact h2{ font-size:clamp(26px,3.6vw,34px); }
   .foot-logo{ height:170px; width:auto; }
   .contact-list{ display:flex; flex-direction:column; gap:12px; }
@@ -221,24 +224,21 @@
   </div>
 </section>
 
-<footer id="contacto">
-  <div class="wrap">
-    <div class="foot-contact">
-      <h2>Contacto</h2>
-      <img src="images/logo.png" alt="Logo Febo Asoma" class="badge_sun">
-      <div class="contact-list">
-        <a class="contact-row" href="https://instagram.com/feboasoma_ch" target="_blank" rel="noopener">
-          <img src="images/instagram-icon.png" alt="Instagram"> @feboasoma_ch
-        </a>
-        <a class="contact-row" href="https://wa.me/5493624046282" target="_blank" rel="noopener">
-          <img src="images/whatsapp-icon.png" alt="WhatsApp"> 3624 046282
-        </a>
-        <span style="opacity:.8;">Resistencia, Chaco</span>
-      </div>
+<div class="foot-contact">
+  <div class="foot-info">
+    <h2>Contacto</h2>
+    <div class="contact-list">
+      <a class="contact-row" href="https://instagram.com/feboasoma_ch" target="_blank" rel="noopener">
+        <img src="images/instagram-icon.png" alt="Instagram"> @feboasoma_ch
+      </a>
+      <a class="contact-row" href="https://wa.me/5493624046282" target="_blank" rel="noopener">
+        <img src="images/whatsapp-icon.png" alt="WhatsApp"> 3624 046282
+      </a>
+      <span style="opacity:.8;">Resistencia, Chaco</span>
     </div>
-    <div class="fine-print">Febo Asoma - estampados personalizados</div>
   </div>
-</footer>
+  <img src="images/logo.png" alt="Logo Febo Asoma" class="badge_sun">
+</div>
 
 </body>
 </html>
