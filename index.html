@@ -3,7 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Febo Asoma — estampados personalizados</title>
+<title>Febo Asoma — estampados personalizados 🇦🇷</title>
+<link rel="icon" type="image/png" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Caveat:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap');
 
@@ -24,7 +28,7 @@
     background-image:radial-gradient(rgba(46,39,28,0.05) 1px, transparent 1px);
     background-size:14px 14px;
   }
-  h1,h2,h3{ font-family:'Space Grotesk', sans-serif; font-weight:700; margin:0; }
+  h1,h2,h3{ font-family:'Oswald', sans-serif; font-weight:700; margin:0; }
   a{ color:inherit; text-decoration:none; }
   img{ display:block; max-width:100%; }
   .wrap{ max-width:1100px; margin:0 auto; padding:0 30px; }
@@ -41,6 +45,7 @@
   .hero .wrap{ display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; }
   @media (max-width:840px){ .hero .wrap{ grid-template-columns:1fr; } }
   .hero h1{ font-size:clamp(38px,5.4vw,54px); line-height:1.08; margin-bottom:20px; }
+  .hero .tagline{ font-family:'Caveat', cursive; font-size: clamp(1.4rem, 2.4vw, 1.9rem); color: var(--slate-deep); font-weight: 700; margin-bottom: .3em; display:block; }
   .hero p{ font-size:17.5px; max-width:44ch; color:var(--muted); margin-bottom:30px; }
   .hero-actions{ display:flex; gap:12px; flex-wrap:wrap; }
   .btn{ padding:15px 24px; border-radius:8px; font-weight:600; font-size:15.5px; display:inline-flex; align-items:center; gap:8px; }
@@ -82,6 +87,15 @@
   .card-art{ aspect-ratio:4/3; overflow:hidden; background:#fff; }
   .card-art img{ width:100%; height:100%; object-fit:contain; object-position:center; }
   .card-body{ padding:18px 18px 20px; display:flex; flex-direction:column; gap:8px; flex:1; }
+  .card-body .desc{ display:none; }
+  .card-foot{ display:flex; align-items:center; gap:8px; margin-top:6px; flex-wrap:wrap; }
+  .price{ margin-right:auto; }
+  .detail-btn{
+    font-weight:600; font-size:13px; background:transparent;
+    border:1.5px solid rgba(46,39,28,0.35); color:var(--ink);
+    padding:8px 14px; border-radius:8px; cursor:pointer;
+  }
+  .detail-btn:hover{ border-color:var(--ink); }
   .card-body h3{ font-size:16px; }
   .card-body .desc{ font-size:14px; color:var(--muted); flex:1; }
   .card-foot{ display:flex; align-items:center; justify-content:space-between; margin-top:6px; }
@@ -113,6 +127,40 @@
   @media (max-width:600px){
     .foot-contact{ display:flex; justify-content:space-between; align-items:flex-start; gap:24px; padding-bottom:32px; flex-wrap:wrap; }
   }
+
+  /* ---- modal de detalle de producto ---- */
+  .card{ cursor:pointer; transition:transform .15s ease, box-shadow .15s ease; }
+  .card:hover{ transform:translateY(-4px); box-shadow:0 14px 26px rgba(46,39,28,0.14); }
+  .modal-overlay{
+    display:none; position:fixed; inset:0; z-index:100;
+    background:rgba(46,39,28,0.65);
+    align-items:center; justify-content:center; padding:24px;
+  }
+  .modal-overlay.open{ display:flex; }
+  .modal-box{
+    background:var(--card); border-radius:18px; overflow:hidden;
+    width:100%; max-width:920px; max-height:92vh; overflow-y:auto;
+    position:relative; display:grid; grid-template-columns:1fr;
+  }
+  @media (min-width:700px){ .modal-box{ grid-template-columns:1.1fr 1fr; } }
+  .modal-close{
+    position:absolute; top:14px; right:14px; z-index:2;
+    background:#fff; border:none; border-radius:50%;
+    width:38px; height:38px; font-size:22px; line-height:1;
+    cursor:pointer; color:var(--ink); box-shadow:0 2px 8px rgba(46,39,28,0.25);
+  }
+  .modal-img{ width:100%; height:100%; object-fit:cover; aspect-ratio:4/5; background:#fff; }
+  @media (max-width:699px){ .modal-img{ aspect-ratio:4/3; } }
+  .modal-info{ padding:32px 34px 36px; display:flex; flex-direction:column; gap:14px; justify-content:center; }
+  .modal-info h3{ font-size:clamp(22px,3vw,28px); }
+  .modal-info .price{ font-size:20px; font-weight:700; color:var(--ink); }
+  .modal-info .desc{ font-size:15.5px; line-height:1.6; color:var(--muted); margin:0; }
+  .modal-order{
+    margin-top:6px; align-self:flex-start; font-weight:700; font-size:15px;
+    background:var(--mustard); color:#2E271C; padding:14px 26px; border-radius:8px;
+  }
+  .modal-order:hover{ background:#C27B12; }
+  body.modal-open{ overflow:hidden; }
 </style>
 </head>
 <body>
@@ -132,8 +180,9 @@
 <header class="hero">
   <div class="wrap">
     <div>
+      <span class="tagline">Hecho acá, con orgullo 🇦🇷</span>
       <h1>Estampamos tu idea</h1>
-      <p>Estampados en DTF y sublimación de tazas con el diseño que quieras. Nos escribís por WhatsApp o Instagram, y nosotros nos encargamos del resto.</p>
+      <p>Diseños personalizados, estampados en DTF y sublimación. Nos escribís por WhatsApp o Instagram, y nosotros nos encargamos del resto.</p>
       <div class="hero-actions">
         <a class="btn btn-solid" href="#catalogo">Ver catálogo</a>
         <a class="btn btn-outline" href="#proceso">¿Cómo pedir?</a>
@@ -304,10 +353,10 @@
         <h2>Contacto</h2>
         <div class="contact-list">
           <a class="contact-row" href="https://instagram.com/feboasoma_ch" target="_blank" rel="noopener">
-            <img src="images/instagram-icon.png" alt="Instagram"> @feboasoma_ch
+            <img src="images/instagram.png" alt="Instagram"> @feboasoma_ch
           </a>
           <a class="contact-row" href="https://wa.me/5493624046282" target="_blank" rel="noopener">
-            <img src="images/whatsapp-icon.png" alt="WhatsApp"> 3624 046282
+            <img src="images/whatsapp.png" alt="WhatsApp"> 3624 046282
           </a>
           <span style="opacity:.8;">Resistencia, Chaco</span>
         </div>
@@ -317,6 +366,77 @@
     <div class="fine-print">Febo Asoma - estampados personalizados</div>
   </div>
 </footer>
+
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal-box">
+    <button class="modal-close" id="modal-close" aria-label="Cerrar">&times;</button>
+    <img class="modal-img" id="modal-img" src="" alt="">
+    <div class="modal-info">
+      <h3 id="modal-title"></h3>
+      <div class="price" id="modal-price"></div>
+      <p class="desc" id="modal-desc"></p>
+      <a class="modal-order" id="modal-order" href="#" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var overlay = document.getElementById('modal-overlay');
+  var modalImg = document.getElementById('modal-img');
+  var modalTitle = document.getElementById('modal-title');
+  var modalPrice = document.getElementById('modal-price');
+  var modalDesc = document.getElementById('modal-desc');
+  var modalOrder = document.getElementById('modal-order');
+
+  function openModal(card){
+    var img = card.querySelector('.card-art img');
+    var title = card.querySelector('h3');
+    var price = card.querySelector('.price');
+    var desc = card.querySelector('.desc');
+    var order = card.querySelector('.order-link');
+    modalImg.src = img.src;
+    modalImg.alt = img.alt;
+    modalTitle.textContent = title.textContent;
+    modalPrice.textContent = price.textContent;
+    modalDesc.textContent = desc ? desc.textContent : '';
+    modalOrder.href = order.href;
+    overlay.classList.add('open');
+    document.body.classList.add('modal-open');
+  }
+  function closeModal(){
+    overlay.classList.remove('open');
+    document.body.classList.remove('modal-open');
+  }
+
+  document.querySelectorAll('.grid .card').forEach(function(card){
+    var order = card.querySelector('.order-link');
+    if (order && !card.querySelector('.detail-btn')){
+      var detailBtn = document.createElement('button');
+      detailBtn.type = 'button';
+      detailBtn.className = 'detail-btn';
+      detailBtn.textContent = 'Ver detalle';
+      order.parentNode.insertBefore(detailBtn, order);
+      detailBtn.addEventListener('click', function(e){
+        e.stopPropagation();
+        openModal(card);
+      });
+    }
+    card.addEventListener('click', function(e){
+      if (e.target.closest('.order-link') || e.target.closest('.detail-btn')) return; // esos botones ya tienen su propia acción
+      openModal(card);
+    });
+  });
+
+  overlay.addEventListener('click', function(e){
+    if (e.target === overlay) closeModal();
+  });
+  document.getElementById('modal-close').addEventListener('click', closeModal);
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeModal();
+  });
+})();
+</script>
 
 </body>
 </html>
