@@ -7,9 +7,9 @@
 <link rel="icon" type="image/png" href="images/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Caveat:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap');
 
   :root{
     --paper:#F3EBDC;
@@ -78,28 +78,38 @@
   .group-label{ display:flex; align-items:center; gap:12px; font-weight:700; font-size:15px; color:var(--slate-deep); margin:42px 0 18px; }
   .group-label::after{ content:""; flex:1; height:1px; background:rgba(46,39,28,0.16); }
 
+  .search-box{ position:relative; max-width:420px; margin:0 0 8px; }
+  .search-box svg{ position:absolute; left:14px; top:50%; transform:translateY(-50%); width:18px; height:18px; color:var(--muted); pointer-events:none; }
+  .search-box input{
+    width:100%; padding:13px 16px 13px 42px; border-radius:10px;
+    border:1.5px solid rgba(46,39,28,0.18); background:#fff;
+    font-family:'Work Sans', sans-serif; font-size:15px; color:var(--ink);
+    outline:none; transition:border-color .15s ease;
+  }
+  .search-box input::placeholder{ color:var(--muted); }
+  .search-box input:focus{ border-color:var(--slate-deep); }
+  .no-results{ display:none; padding:30px 0; color:var(--muted); font-size:15px; }
+  .no-results.show{ display:block; }
+
   .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
   @media (max-width:860px){ .grid{ grid-template-columns:repeat(2,1fr);} }
   @media (max-width:560px){ .grid{ grid-template-columns:1fr;} }
 
-  .card{ background:var(--card); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; border:1px solid rgba(46,39,28,0.10); transition:transform .15s ease, box-shadow .15s ease; }
+  .card{ background:var(--card); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; border:1px solid rgba(46,39,28,0.10); transition:transform .15s ease, box-shadow .15s ease; cursor:pointer; }
   .card:hover{ transform:translateY(-4px); box-shadow:0 14px 26px rgba(46,39,28,0.14); }
   .card-art{ aspect-ratio:4/3; overflow:hidden; background:#fff; }
   .card-art img{ width:100%; height:100%; object-fit:contain; object-position:center; }
   .card-body{ padding:18px 18px 20px; display:flex; flex-direction:column; gap:8px; flex:1; }
   .card-body .desc{ display:none; }
-  .card-foot{ display:flex; align-items:center; gap:8px; margin-top:6px; flex-wrap:wrap; }
-  .price{ margin-right:auto; }
+  .card-body h3{ font-size:16px; }
+  .card-foot{ display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:6px; flex-wrap:wrap; }
+  .price{ margin-right:auto; font-weight:600; font-size:14.5px; color:var(--ink); }
   .detail-btn{
     font-weight:600; font-size:13px; background:transparent;
     border:1.5px solid rgba(46,39,28,0.35); color:var(--ink);
     padding:8px 14px; border-radius:8px; cursor:pointer;
   }
   .detail-btn:hover{ border-color:var(--ink); }
-  .card-body h3{ font-size:16px; }
-  .card-body .desc{ font-size:14px; color:var(--muted); flex:1; }
-  .card-foot{ display:flex; align-items:center; justify-content:space-between; margin-top:6px; }
-  .price{ font-weight:600; font-size:14.5px; color:var(--ink); }
   .order-link{ font-weight:700; font-size:13px; background:var(--mustard); color:#2E271C; padding:9px 16px; border-radius:8px; }
   .order-link:hover{ background:#C27B12; }
   .see-more{ margin-top:14px; }
@@ -114,23 +124,24 @@
   .step h3{ font-size:16.5px; margin-bottom:6px; }
   .step p{ font-size:14.5px; color:rgba(255,255,255,0.75); margin:0; }
 
-  footer{ padding:30px 0 40px; }
-  .foot-contact{ display:flex; justify-content:space-between; align-items:flex-start; gap:24px; padding-bottom:32px; flex-wrap:wrap; }
-  .foot-contact h2{ font-size:clamp(26px,3.6vw,34px); }
+  footer{ padding:30px 0 40px; background:var(--card); }
+  .foot-contact{ display:flex; justify-content:space-between; align-items:center; gap:24px; padding-bottom:32px; flex-wrap:wrap; }
+  .foot-info{ display:flex; flex-direction:column; align-items:flex-start; text-align:left; }
+  .foot-contact h2{ font-size:clamp(26px,3.6vw,34px); margin-bottom:36px; }
+  .foot-logo-wrap{ display:flex; flex-direction:column; align-items:center; gap:12px; }
   .foot-logo{ height:170px; width:auto; }
-  .contact-list{ display:flex; flex-direction:column; gap:16px; }
+  .contact-list{ display:flex; flex-direction:column; align-items:flex-start; gap:16px; }
   .contact-row{ display:flex; align-items:center; gap:10px; font-weight:600; font-size:15px; color:var(--ink); }
-  .contact-row img{ width:26px; height:26px; }
-  .contact-row.email{ font-weight:600; }
+  .contact-row img{ width:26px; height:26px; display:block; }
   a.contact-row:hover{ color:var(--slate-deep); }
   .fine-print{ padding-top:20px; border-top:1px solid rgba(46,39,28,0.14); font-size:13px; color:var(--muted); text-align:center; }
   @media (max-width:600px){
-    .foot-contact{ display:flex; justify-content:space-between; align-items:flex-start; gap:24px; padding-bottom:32px; flex-wrap:wrap; }
+    .foot-contact{ flex-direction:column; align-items:flex-start; }
+    .foot-logo-wrap{ align-self:center; }
+    .contact-list{ align-items:flex-start; }
   }
 
   /* ---- modal de detalle de producto ---- */
-  .card{ cursor:pointer; transition:transform .15s ease, box-shadow .15s ease; }
-  .card:hover{ transform:translateY(-4px); box-shadow:0 14px 26px rgba(46,39,28,0.14); }
   .modal-overlay{
     display:none; position:fixed; inset:0; z-index:100;
     background:rgba(46,39,28,0.65);
@@ -149,8 +160,10 @@
     width:38px; height:38px; font-size:22px; line-height:1;
     cursor:pointer; color:var(--ink); box-shadow:0 2px 8px rgba(46,39,28,0.25);
   }
-  .modal-img{ width:100%; height:100%; object-fit:cover; aspect-ratio:4/5; background:#fff; }
+  .modal-img{ width:100%; height:100%; object-fit:contain; aspect-ratio:4/5; background:#fff; }
   @media (max-width:699px){ .modal-img{ aspect-ratio:4/3; } }
+  .modal-box.image-only{ grid-template-columns:1fr; }
+  .modal-box.image-only .modal-img{ aspect-ratio:auto; max-height:82vh; }
   .modal-info{ padding:32px 34px 36px; display:flex; flex-direction:column; gap:14px; justify-content:center; }
   .modal-info h3{ font-size:clamp(22px,3vw,28px); }
   .modal-info .price{ font-size:20px; font-weight:700; color:var(--ink); }
@@ -161,6 +174,22 @@
   }
   .modal-order:hover{ background:#C27B12; }
   body.modal-open{ overflow:hidden; }
+  
+  .talles-card {
+  background: var(--card);
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  padding: 1.5rem;
+  max-width: 500px;
+  margin: 0 auto;
+  }
+
+  .talles-img {
+  width: 100%;
+  border-radius: 12px;
+  cursor: zoom-in;
+  display: block;
+  }
 </style>
 </head>
 <body>
@@ -170,6 +199,7 @@
     <div class="brand"><img src="images/logo.png" alt="Logo Febo Asoma"></div>
     <div class="nav-links">
       <a href="#catalogo">Catálogo</a>
+	   <a href="#talles">Guía de talles</a>
       <a href="#proceso">¿Cómo pedir?</a>
       <a href="#contacto">Contacto</a>
     </div>
@@ -201,6 +231,12 @@
       <p>Estos son algunos ejemplos de nuestro catálogo — Elegí tu diseño, color y talle, o contanos tu idea y la hacemos realidad.</p>
     </div>
 
+    <div class="search-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input type="text" id="catalog-search" placeholder="Buscá un diseño, ej: Messi, Malvinas, Taza...">
+    </div>
+    <p class="no-results" id="no-results">No encontramos productos que coincidan con tu búsqueda.</p>
+
     <div class="group-label">Remeras estampadas en DTF</div>
     <div class="grid">
       <div class="card">
@@ -211,12 +247,12 @@
           <div class="card-foot"><span class="price">$22.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%20Las%20Malvinas%20son%20Argentinas" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
-      <div class="card">
-        <div class="card-art"><img src="images/remera-messi-negra.jpg" alt="Remera negra estampada con Lionel Messi"></div>
+	  <div class="card">
+        <div class="card-art"><img src="images/remera-4taestrella-negra.jpg" alt="Remera negra con diseño de la 4ta estrella y Malvinas"></div>
         <div class="card-body">
-          <h3>Lionel Messi</h3>
-          <p class="desc">Estampa DTF en la espalda, algodón negro.</p>
-          <div class="card-foot"><span class="price">$22.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%20Lionel%20Messi" target="_blank" rel="noopener">Pedir</a></div>
+          <h3>4ta Estrella</h3>
+          <p class="desc">Estampa al frente en DTF, algodón negro.</p>
+          <div class="card-foot"><span class="price">$22.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%204ta%20Estrella" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card">
@@ -228,14 +264,6 @@
         </div>
       </div>
       <div class="card">
-        <div class="card-art"><img src="images/remera-charly-negra.jpg" alt="Remera negra con estampa de Charly García"></div>
-        <div class="card-body">
-          <h3>Charly García - Clics Modernos</h3>
-          <p class="desc">Estampa al frente en DTF, algodón negro.</p>
-          <div class="card-foot"><span class="price">$22.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%20Charly%20Garc%C3%ADa" target="_blank" rel="noopener">Pedir</a></div>
-        </div>
-      </div>
-      <div class="card">
         <div class="card-art"><img src="images/remera-argentina-blanca.jpg" alt="Remera blanca con estampa de Argentina Ilustrada"></div>
         <div class="card-body">
           <h3>Argentina Ilustrada</h3>
@@ -244,11 +272,59 @@
         </div>
       </div>
       <div class="card">
-        <div class="card-art"><img src="images/remera-4taestrella-negra.jpg" alt="Remera negra con diseño de la 4ta estrella y Malvinas"></div>
+        <div class="card-art"><img src="images/remera-messi-negra.jpg" alt="Remera negra estampada con Lionel Messi"></div>
         <div class="card-body">
-          <h3>4ta Estrella</h3>
+          <h3>Lionel Messi</h3>
+          <p class="desc">Estampa DTF en la espalda, algodón negro.</p>
+          <div class="card-foot"><span class="price">$22.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%20Lionel%20Messi" target="_blank" rel="noopener">Pedir</a></div>
+        </div>
+      </div>
+	   <div class="card">
+        <div class="card-art"><img src="images/remera-diego-cara.png" alt="Remera blanca con estampa de Diego Maradona"></div>
+        <div class="card-body">
+          <h3>Diego Maradona 2</h3>
+          <p class="desc">Estampa al frente en DTF, algodón blanco.</p>
+          <div class="card-foot"><span class="price">$22.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%20Diego%20Maradona" target="_blank" rel="noopener">Pedir</a></div>
+        </div>
+      </div>
+	  <div class="card">
+        <div class="card-art"><img src="images/remera-bb.png" alt="Remera blanca con diseño de breaking bad"></div>
+        <div class="card-body">
+          <h3>Breaking Bad</h3>
+          <p class="desc">Estampa al frente en DTF, algodón blanco.</p>
+          <div class="card-foot"><span class="price">$22.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%20Breaking%20Bad" target="_blank" rel="noopener">Pedir</a></div>
+        </div>
+      </div>
+	   <div class="card">
+        <div class="card-art"><img src="images/remera-charly-negra.jpg" alt="Remera negra con estampa de Charly García"></div>
+        <div class="card-body">
+          <h3>Charly García - Clics Modernos</h3>
           <p class="desc">Estampa al frente en DTF, algodón negro.</p>
-          <div class="card-foot"><span class="price">$22.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%204ta%20Estrella" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$22.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%20Charly%20Garc%C3%ADa" target="_blank" rel="noopener">Pedir</a></div>
+        </div>
+      </div>
+	  <div class="card">
+        <div class="card-art"><img src="images/remera-chihiro.png" alt="Remera blanca con diseño de El Viaje de Chihiro"></div>
+        <div class="card-body">
+          <h3>El Viaje de Chihiro</h3>
+          <p class="desc">Estampa al frente en DTF, algodón blanco.</p>
+          <div class="card-foot"><span class="price">$22.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%20Chihiro" target="_blank" rel="noopener">Pedir</a></div>
+        </div>
+      </div>
+	  <div class="card">
+        <div class="card-art"><img src="images/remera-contraeltrabajo-blanca.jpg" alt="Remera blanca con frase 'Contra el trabajo y el capital, la jubilación a los 18 años'"></div>
+        <div class="card-body">
+          <h3>Contra el Trabajo y el Capital</h3>
+          <p class="desc">Estampa al frente en DTF, algodón blanco.</p>
+          <div class="card-foot"><span class="price">$22.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%20Contra%20el%20trabajo%20y%20el%20capital" target="_blank" rel="noopener">Pedir</a></div>
+        </div>
+      </div>
+	  <div class="card">
+        <div class="card-art"><img src="images/remera-magooscuro.png" alt="Remera negra con estampa de El Mago Oscuro"></div>
+        <div class="card-body">
+          <h3>Mago Oscuro</h3>
+          <p class="desc">Estampa al frente en DTF, algodón negro.</p>
+          <div class="card-foot"><span class="price">$22.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%20Mago%20Oscuro" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card">
@@ -260,11 +336,11 @@
         </div>
       </div>
       <div class="card">
-        <div class="card-art"><img src="images/remera-contraeltrabajo-blanca.jpg" alt="Remera blanca con frase 'Contra el trabajo y el capital, la jubilación a los 18 años'"></div>
+        <div class="card-art"><img src="images/remera-marolio.png" alt="Remera blanca con diseño Piramide Marolio"></div>
         <div class="card-body">
-          <h3>Contra el Trabajo y el Capital</h3>
+          <h3>Marolio</h3>
           <p class="desc">Estampa al frente en DTF, algodón blanco.</p>
-          <div class="card-foot"><span class="price">$22.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%20Contra%20el%20trabajo%20y%20el%20capital" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$22.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20remera%20Marolio" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
     </div>
@@ -273,63 +349,144 @@
     <div class="group-label">Tazas de cerámica sublimadas</div>
     <div class="grid">
       <div class="card">
-        <div class="card-art"><img src="images/taza-pollos-hermanos.jpg" alt="Taza sublimada con diseño 'Los Pollos Hermanos'"></div>
+        <div class="card-art"><img src="images/taza-pollos-hermanos.jpg" alt="Taza sublimada con diseño Los Pollos Hermanos"></div>
         <div class="card-body">
-          <h3>Taza "Los Pollos Hermanos"</h3>
+          <h3>Taza Los Pollos Hermanos</h3>
           <p class="desc">Sublimado resistente al lavado. Este es un ejemplo — la armamos con el diseño, foto o frase que quieras.</p>
-          <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20una%20taza%20personalizada" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20taza%20Los%20Pollos%20Hermanos" target="_blank" rel="noopener">Pedir</a></div>
+        </div>
+      </div>
+	  <div class="card">
+        <div class="card-art"><img src="images/taza-better-call-saul.png" alt="Taza sublimada con diseño de Better Call Saul"></div>
+        <div class="card-body">
+          <h3>Taza Better Call Saul</h3>
+          <p class="desc">Sublimado resistente al lavado.</p>
+          <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20taza%20Better%20Call%20Saul" target="_blank" rel="noopener">Pedir</a></div>
+        </div>
+      </div>
+	  <div class="card">
+        <div class="card-art"><img src="images/taza-anatomy.png" alt="Taza sublimada con diseño de Grey's Anatomy"></div>
+        <div class="card-body">
+          <h3>Taza Grey's Anatomy</h3>
+          <p class="desc">Sublimado resistente al lavado.</p>
+          <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20taza%20Greys%20Anatomy" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card">
-        <div class="card-art"><img src="images/taza-charly-garcia.jpg" alt="Taza sublimada con ilustración de Charly García"></div>
+        <div class="card-art"><img src="images/taza-charly-garcia.png" alt="Taza sublimada con ilustración de Charly García"></div>
         <div class="card-body">
-          <h3>Taza "Charly García"</h3>
+          <h3>Taza Charly García</h3>
           <p class="desc">Sublimado resistente al lavado.</p>
           <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20taza%20Charly%20Garc%C3%ADa" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card">
-        <div class="card-art"><img src="images/taza-say-no-more.jpg" alt="Taza sublimada con diseño 'Say No More'"></div>
+        <div class="card-art"><img src="images/taza-say-no-more.png" alt="Taza sublimada con diseño Say No More"></div>
         <div class="card-body">
-          <h3>Taza "Say No More"</h3>
+          <h3>Taza Charly Garcia - Say No More</h3>
           <p class="desc">Sublimado resistente al lavado.</p>
           <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20taza%20Say%20No%20More" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
-      <div class="card">
-        <div class="card-art"><img src="images/taza-dragon-ball.jpg" alt="Taza sublimada con diseño de Dragon Ball"></div>
+	   <div class="card">
+        <div class="card-art"><img src="images/taza-almendra.png" alt="Taza sublimada con diseño de Almendra"></div>
         <div class="card-body">
-          <h3>Taza "Dragon Ball"</h3>
+          <h3>Taza Almendra</h3>
+          <p class="desc">Sublimado resistente al lavado.</p>
+          <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20taza%20Almendra" target="_blank" rel="noopener">Pedir</a></div>
+        </div>
+      </div>
+	  <div class="card">
+        <div class="card-art"><img src="images/taza-pokemon.png" alt="Taza sublimada con diseño de Pokemon"></div>
+        <div class="card-body">
+          <h3>Taza Pokemon</h3>
+          <p class="desc">Sublimado resistente al lavado.</p>
+          <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20taza%20Pokemon" target="_blank" rel="noopener">Pedir</a></div>
+        </div>
+      </div>
+	  <div class="card">
+        <div class="card-art"><img src="images/taza-pokemon2.png" alt="Taza sublimada con diseño de Pokemon Iniciales"></div>
+        <div class="card-body">
+          <h3>Taza Pokemon 2 </h3>
+          <p class="desc">Sublimado resistente al lavado.</p>
+          <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20taza%20Pokemon" target="_blank" rel="noopener">Pedir</a></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-art"><img src="images/taza-dragon-ball.png" alt="Taza sublimada con diseño de Dragon Ball"></div>
+        <div class="card-body">
+          <h3>Taza Dragon Ball</h3>
           <p class="desc">Sublimado resistente al lavado.</p>
           <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20taza%20Dragon%20Ball" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
-      <div class="card">
-        <div class="card-art"><img src="images/taza-got.jpg" alt="Taza sublimada con diseño de Game of Thrones"></div>
+	  <div class="card">
+        <div class="card-art"><img src="images/taza-jujutsu.png" alt="Taza sublimada con diseño estilo Jujutsu"></div>
         <div class="card-body">
-          <h3>Taza "Game of Thrones"</h3>
-          <p class="desc">Sublimado resistente al lavado.</p>
-          <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20taza%20Game%20of%20Thrones" target="_blank" rel="noopener">Pedir</a></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-art"><img src="images/taza-jujutsu.jpg" alt="Taza sublimada con diseño estilo Jujutsu"></div>
-        <div class="card-body">
-          <h3>Taza "Jujutsu"</h3>
+          <h3>Taza Jujutsu Kaisen</h3>
           <p class="desc">Sublimado resistente al lavado.</p>
           <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20taza%20Jujutsu" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card">
-        <div class="card-art"><img src="images/taza-almendra.jpg" alt="Taza sublimada con diseño de Almendra"></div>
+        <div class="card-art"><img src="images/taza-got-stark.png" alt="Taza sublimada con diseño de Game of Thrones - Stark"></div>
         <div class="card-body">
-          <h3>Taza "Almendra"</h3>
+          <h3>Taza Game of Thrones - Stark</h3>
           <p class="desc">Sublimado resistente al lavado.</p>
-          <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20taza%20Almendra" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20taza%20Game%20of%20Thrones%20Stark" target="_blank" rel="noopener">Pedir</a></div>
+        </div>
+      </div>
+	  <div class="card">
+        <div class="card-art"><img src="images/taza-got-tar.png" alt="Taza sublimada con diseño de Game of Thrones - Targaryen"></div>
+        <div class="card-body">
+          <h3>Taza Game of Thrones - Targaryen</h3>
+          <p class="desc">Sublimado resistente al lavado.</p>
+          <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20taza%20Game%20of%20Thrones%20Targaryen" target="_blank" rel="noopener">Pedir</a></div>
+        </div>
+      </div>
+	  <div class="card">
+        <div class="card-art"><img src="images/taza-rick.png" alt="Taza sublimada con diseño de Rick and Morty"></div>
+        <div class="card-body">
+          <h3>Taza Rick and Morty</h3>
+          <p class="desc">Sublimado resistente al lavado.</p>
+          <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20taza%20Rick" target="_blank" rel="noopener">Pedir</a></div>
+        </div>
+      </div>
+	  <div class="card">
+        <div class="card-art"><img src="images/taza-fine.png" alt="Taza sublimada con diseño de This is Fine"></div>
+        <div class="card-body">
+          <h3>Taza This is Fine</h3>
+          <p class="desc">Sublimado resistente al lavado.</p>
+          <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20taza%20This%20is%20Fine" target="_blank" rel="noopener">Pedir</a></div>
+        </div>
+      </div>
+	  <div class="card">
+        <div class="card-art"><img src="images/taza-do-it.png" alt="Taza sublimada con diseño de Do It For Him"></div>
+        <div class="card-body">
+          <h3>Taza Do It For Him</h3>
+          <p class="desc">Sublimado resistente al lavado.</p>
+          <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20pedir%20la%20taza%20Do%20it%20for%20him" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
     </div>
     <div class="see-more"><a href="https://instagram.com/feboasoma_ch" target="_blank" rel="noopener">Ver más tazas en Instagram →</a></div>
+</section>
+
+<section id="talles" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Guía de talles</h2>
+      <p>Así quedan las medidas de nuestras remeras. Cualquier duda, coordinamos el talle por WhatsApp.</p>
+    </div>
+    <div class="talles-card">
+      <img
+        src="images/guia-talles-remeras.png"
+        alt="Guía de talles de remeras Febo Asoma"
+        class="talles-img"
+        onclick="abrirModalImagen(this.src, this.alt)"
+      />
+    </div>
+  </div>
 </section>
 
 <section class="section" id="proceso">
@@ -349,6 +506,9 @@
 <footer id="contacto">
   <div class="wrap">
     <div class="foot-contact">
+      <div class="foot-logo-wrap">
+        <img src="images/logo.png" alt="Logo Febo Asoma" class="foot-logo">
+      </div>
       <div class="foot-info">
         <h2>Contacto</h2>
         <div class="contact-list">
@@ -361,7 +521,6 @@
           <span style="opacity:.8;">Resistencia, Chaco</span>
         </div>
       </div>
-      <img src="images/logo.png" alt="Logo Febo Asoma" class="foot-logo">
     </div>
     <div class="fine-print">Febo Asoma - estampados personalizados</div>
   </div>
@@ -371,7 +530,7 @@
   <div class="modal-box">
     <button class="modal-close" id="modal-close" aria-label="Cerrar">&times;</button>
     <img class="modal-img" id="modal-img" src="" alt="">
-    <div class="modal-info">
+    <div class="modal-info" id="modal-info">
       <h3 id="modal-title"></h3>
       <div class="price" id="modal-price"></div>
       <p class="desc" id="modal-desc"></p>
@@ -383,7 +542,9 @@
 <script>
 (function(){
   var overlay = document.getElementById('modal-overlay');
+  var modalBox = document.querySelector('.modal-box');
   var modalImg = document.getElementById('modal-img');
+  var modalInfo = document.getElementById('modal-info');
   var modalTitle = document.getElementById('modal-title');
   var modalPrice = document.getElementById('modal-price');
   var modalDesc = document.getElementById('modal-desc');
@@ -395,6 +556,8 @@
     var price = card.querySelector('.price');
     var desc = card.querySelector('.desc');
     var order = card.querySelector('.order-link');
+    modalBox.classList.remove('image-only');
+    modalInfo.style.display = '';
     modalImg.src = img.src;
     modalImg.alt = img.alt;
     modalTitle.textContent = title.textContent;
@@ -404,6 +567,15 @@
     overlay.classList.add('open');
     document.body.classList.add('modal-open');
   }
+  function abrirModalImagen(src, alt){
+    modalBox.classList.add('image-only');
+    modalInfo.style.display = 'none';
+    modalImg.src = src;
+    modalImg.alt = alt || '';
+    overlay.classList.add('open');
+    document.body.classList.add('modal-open');
+  }
+  window.abrirModalImagen = abrirModalImagen;
   function closeModal(){
     overlay.classList.remove('open');
     document.body.classList.remove('modal-open');
@@ -435,6 +607,46 @@
   document.addEventListener('keydown', function(e){
     if (e.key === 'Escape') closeModal();
   });
+})();
+
+(function(){
+  var input = document.getElementById('catalog-search');
+  var noResults = document.getElementById('no-results');
+  var groups = Array.prototype.map.call(document.querySelectorAll('#catalogo .group-label'), function(label){
+    return {
+      label: label,
+      grid: label.nextElementSibling,
+      seeMore: label.nextElementSibling.nextElementSibling
+    };
+  });
+
+  function normalize(str){
+    return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
+  function filter(){
+    var query = normalize(input.value.trim());
+    var anyVisible = false;
+
+    groups.forEach(function(group){
+      var groupHasMatch = false;
+      group.grid.querySelectorAll('.card').forEach(function(card){
+        var text = normalize(card.querySelector('h3').textContent + ' ' + (card.querySelector('.desc') ? card.querySelector('.desc').textContent : ''));
+        var match = !query || text.indexOf(query) !== -1;
+        card.style.display = match ? '' : 'none';
+        if (match) groupHasMatch = true;
+      });
+      var show = !query || groupHasMatch;
+      group.label.style.display = show ? '' : 'none';
+      group.grid.style.display = show ? '' : 'none';
+      if (group.seeMore) group.seeMore.style.display = show ? '' : 'none';
+      if (show) anyVisible = true;
+    });
+
+    noResults.classList.toggle('show', !anyVisible);
+  }
+
+  input.addEventListener('input', filter);
 })();
 </script>
 
