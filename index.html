@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Febo Asoma — estampados personalizados</title>
 <meta name="description" content="Remeras DTF, tazas sublimadas y más, personalizadas en Resistencia, Chaco. Mandanos tu diseño, foto o idea y nosotros nos encargamos del resto.">
-<meta name="theme-color" content="#F3EBDC">
+<meta name="theme-color" content="#F5EEDB">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_AR">
 <meta property="og:site_name" content="Febo Asoma">
@@ -15,27 +15,35 @@
 <meta property="og:image" content="https://feboasoma.netlify.app/images/logo.png">
 <meta property="og:image:alt" content="Logo Febo Asoma">
 <meta name="twitter:card" content="summary">
-<link rel="icon" type="image/png" href="images/logo.png">
+<link rel="icon" type="image/png" href="images/sol.png">
+<link rel="apple-touch-icon" href="images/sol.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Caveat:wght@700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Caveat:wght@700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#F3EBDC;
-    --card:#FFFDF8;
-    --ink:#000;
-    --muted:#4A4236;
-    --mustard:#F2A414;
-    --paper-deep:#EBE0CA;
-    --celeste:#6CACE4;
-    --celeste-text:#2B6CA8;
+    /* Paleta Febo Asoma - Crema Cálido con Terracota */
+    --bg-principal:#F5EEDB;      /* Crema cálido base */
+    --color-primario:#1C1B19;    /* Negro Carbón */
+    --acento-secundario:#A65E44; /* Terracota / Marrón Arcilla */
+    --acento-secundario-dark:#8A4932; /* Terracota hover/oscuro */
+    --acento-marca:#F2A414;      /* Dorado / Amarillo Sol Logo */
+    --texto-oscuro:#1C1B19;      /* Negro Tierra */
+
+    /* Tonos de apoyo */
+    --acento-marca-hover:#C27B12; /* Dorado más oscuro para hover */
+    --crema-profundo:#EAE1CB;     /* Crema un poco más oscuro (sección talles) */
+    --card:#FFFFFF;               /* Superficie blanca limpia de tarjetas */
+    --muted:#4D4A44;              /* Texto secundario */
+    --celeste-patrio:#5698D0;     /* Celeste patrio */
+    --borde-ui:#1C1B19;           /* Borde negro definido */
   }
   *{ box-sizing:border-box; }
   html{ scroll-behavior:smooth; scroll-padding-top:50px; }
   body{
-    margin:0; background:var(--paper); color:var(--ink);
+    margin:0; background:var(--bg-principal); color:var(--texto-oscuro);
     font-family:'Work Sans', sans-serif; font-size:16px; line-height:1.6;
-    background-image:radial-gradient(rgba(46,39,28,0.05) 1px, transparent 1px);
+    background-image:radial-gradient(rgba(28,27,25,0.06) 1px, transparent 1px);
     background-size:14px 14px;
   }
   h1,h2,h3{ font-family:'Oswald', sans-serif; font-weight:700; margin:0; }
@@ -43,47 +51,84 @@
   img{ display:block; max-width:100%; }
   .wrap{ max-width:1100px; margin:0 auto; padding:0 30px; }
 
-  .nav{ position:sticky; top:0; z-index:20; background:var(--paper); border-bottom:1px solid rgba(46,39,28,0.14); }
+  .nav{ position:sticky; top:0; z-index:20; background:var(--bg-principal); border-bottom:1.5px solid rgba(28,27,25,0.14); }
   .nav .wrap{ display:flex; align-items:center; justify-content:space-between; padding:18px 30px; }
   .brand img{ height:54px; }
   .nav-links{ display:flex; gap:26px; font-weight:600; font-size:14.5px; }
-  .nav-links a{ color:#000; }
-  @media (hover:hover){ .nav-links a:hover{ text-decoration:underline; text-decoration-color:var(--celeste); text-decoration-thickness:2px; text-underline-offset:6px; } }
-  .nav-cta{ background:var(--mustard); color:#000; padding:10px 20px; border-radius:8px; font-weight:600; font-size:14px; }
-  .nav-toggle{ display:none; background:transparent; border:1.5px solid rgba(46,39,28,0.4); border-radius:8px; width:42px; height:40px; font-size:22px; line-height:1; color:#000; cursor:pointer; }
+  .nav-links a{ color:var(--texto-oscuro); }
+  @media (hover:hover){ .nav-links a:hover{ color:var(--acento-secundario); text-decoration:underline; text-decoration-color:var(--acento-secundario); text-decoration-thickness:2px; text-underline-offset:6px; } }
+  
+  /* Botón con recuadro negro */
+  .btn-yellow{
+    background:var(--acento-marca);
+    color:var(--texto-oscuro);
+    border:2px solid var(--borde-ui);
+    border-radius:8px;
+    font-weight:700;
+    transition:all .15s ease;
+  }
+  @media (hover:hover){
+    .btn-yellow:hover{
+      background:var(--acento-marca-hover);
+      transform:translateY(-2px);
+      box-shadow:0 4px 0 var(--borde-ui);
+    }
+  }
+
+  .nav-cta{ padding:9px 18px; font-size:14px; }
+  .nav-toggle{ display:none; background:transparent; border:1.5px solid rgba(28,27,25,0.4); border-radius:8px; width:42px; height:40px; font-size:22px; line-height:1; color:var(--texto-oscuro); cursor:pointer; }
   @media (max-width:760px){
     .nav .wrap{ gap:10px; padding:12px 20px; }
     .brand img{ height:44px; }
     .nav-toggle{ display:block; }
-    .nav-cta{ margin-left:auto; padding:9px 16px; }
-    .nav-links{ display:none; position:absolute; top:100%; left:0; right:0; flex-direction:column; gap:0; background:var(--paper); border-bottom:1px solid rgba(46,39,28,0.14); padding:6px 20px 14px; box-shadow:0 10px 20px rgba(46,39,28,0.08); }
+    .nav-cta{ margin-left:auto; padding:8px 14px; font-size:13.5px; }
+    .nav-links{ display:none; position:absolute; top:100%; left:0; right:0; flex-direction:column; gap:0; background:var(--bg-principal); border-bottom:1.5px solid rgba(28,27,25,0.14); padding:6px 20px 14px; box-shadow:0 10px 20px rgba(28,27,25,0.08); }
     .nav.open .nav-links{ display:flex; }
-    .nav-links a{ padding:13px 0; font-size:16px; border-bottom:1px solid rgba(46,39,28,0.08); }
+    .nav-links a{ padding:13px 0; font-size:16px; border-bottom:1px solid rgba(28,27,25,0.08); }
     .nav-links a:last-child{ border-bottom:none; }
   }
-  @media (hover:hover){ .nav-cta:hover{ background:#C27B12; } }
 
-  .hero{ padding:56px 0 40px; background:var(--paper-deep); }
-  .hero .wrap{ display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; }
+  /* Hero */
+  .hero{ padding:60px 0 46px; background:transparent; }
+  .hero .wrap{ display:grid; grid-template-columns:1.2fr 0.8fr; gap:46px; align-items:center; }
   @media (max-width:840px){
     .hero{ padding:36px 0 32px; }
-    .hero .wrap{ grid-template-columns:1fr; gap:22px; }
+    .hero .wrap{ grid-template-columns:1fr; gap:26px; }
   }
-  .hero h1{ font-size:clamp(38px,5.4vw,54px); line-height:1.08; margin-bottom:20px; color:#000; }
-  .hero .tagline{ font-family:'Caveat', cursive; font-size: clamp(1.4rem, 2.4vw, 1.9rem); color:var(--celeste-text); font-weight: 700; margin-bottom: .3em; display:block; }
-  .flag{ display:inline-block; width:.7em; height:.467em; margin-left:.3em; vertical-align:-.02em; border-radius:2px; box-shadow:0 0 0 1px rgba(46,39,28,0.25); }
-  .hero p{ font-size:17.5px; max-width:44ch; color:var(--muted); margin-bottom:30px; }
+  .hero h1{ font-size:clamp(38px,5.4vw,56px); line-height:1.08; margin-bottom:18px; color:var(--texto-oscuro); }
+  .hero .tagline{
+    font-family:'Caveat', cursive;
+    font-size:clamp(1.5rem, 2.5vw, 2.1rem);
+    color:var(--celeste-patrio);
+    font-weight:700;
+    margin-bottom:.3em;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .flag{ display:inline-block; width:22px; height:15px; border-radius:2px; box-shadow:0 0 0 1px rgba(28,27,25,0.25); }
+  .hero p{ font-size:17.5px; max-width:44ch; color:var(--muted); margin-bottom:26px; }
   .hero-actions{ display:flex; gap:12px; flex-wrap:wrap; }
-  .btn{ padding:15px 24px; border-radius:8px; font-weight:600; font-size:15.5px; display:inline-flex; align-items:center; gap:8px; }
-  .btn-solid{ background:var(--mustard); color:#000; }
-  @media (hover:hover){ .btn-solid:hover{ background:#C27B12; } }
-  .btn-outline{ background:transparent; color:var(--ink); border:1.5px solid rgba(46,39,28,0.4); }
-  @media (hover:hover){ .btn-outline:hover{ border-color:var(--ink); } }
+  .btn{ padding:14px 24px; border-radius:8px; font-weight:700; font-size:15.5px; display:inline-flex; align-items:center; gap:8px; cursor:pointer; }
+  .btn-outline{
+    background:transparent;
+    color:var(--texto-oscuro);
+    border:2px solid var(--borde-ui);
+    transition:all .15s ease;
+  }
+  @media (hover:hover){
+    .btn-outline:hover{
+      background:rgba(28,27,25,0.06);
+      transform:translateY(-2px);
+      box-shadow:0 4px 0 var(--borde-ui);
+    }
+  }
 
+  /* Logo flotando */
   .hero-photo{ display:flex; align-items:center; justify-content:center; position:relative; }
   .hero-photo img{
-    width:100%; max-width:360px; position:relative;
-    filter:drop-shadow(0 10px 16px rgba(46,39,28,0.18));
+    width:100%; max-width:340px; position:relative;
+    filter:drop-shadow(0 12px 20px rgba(28,27,25,0.16));
     animation:float 4s ease-in-out infinite;
   }
   @keyframes float{
@@ -93,55 +138,101 @@
   @media (prefers-reduced-motion: reduce){
     .hero-photo img{ animation:none; }
   }
-  @media (max-width:840px){ .hero-photo{ order:-1; max-width:130px; margin:0 auto; } }
+  @media (max-width:840px){
+    .hero-photo{ order:-1; max-width:140px; margin:0 auto; }
+  }
 
+  /* Secciones */
   .section{ padding:64px 0; }
-    .section-head{ margin-bottom:34px; }
-  .section-head h2{ font-size:clamp(28px,4vw,38px); margin-bottom:8px; color:#000; }
-  .section-head h2::after{ content:""; display:block; width:50px; height:4px; border-radius:2px; background:var(--mustard); margin:10px 0 14px; }
-  #catalogo{ border-top:1px solid rgba(46,39,28,0.14); }
-  #talles{ background:var(--paper-deep); }
-  .section-head p{ max-width:44ch; color:var(--muted); margin:0; font-weight:500; }
+  .section-head{ margin-bottom:34px; }
+  .section-head h2{ font-size:clamp(28px,4vw,38px); margin-bottom:8px; color:var(--texto-oscuro); }
+  .section-head h2::after{ content:""; display:block; width:50px; height:4px; border-radius:2px; background:var(--acento-marca); margin:10px 0 14px; }
+  #catalogo{ border-top:1.5px solid rgba(28,27,25,0.14); }
+  #talles{ background:var(--crema-profundo); }
+  .section-head p{ max-width:48ch; color:var(--muted); margin:0; font-weight:500; }
   .section-head p + p{ margin-top:8px; }
 
-  .group-label{ display:flex; align-items:center; gap:14px; font-weight:700; font-size:clamp(21px,2.8vw,26px); line-height:1.2; letter-spacing:.01em; color:#000; margin:42px 0 12px; }
-  .group-label::after{ content:""; flex:1; height:2px; border-radius:2px; background:var(--celeste); }
-
+  /* Encabezados de grupo */
+  .group-header{ margin:44px 0 14px; }
+  .group-label{
+    display:inline-block;
+    font-weight:700;
+    font-size:clamp(21px,2.8vw,26px);
+    line-height:1.2;
+    color:var(--texto-oscuro);
+    border-bottom:3px solid var(--acento-marca);
+    padding-bottom:4px;
+    margin-bottom:8px;
+    scroll-margin-top:60px;
+  }
   .group-intro{ max-width:70ch; margin:0 0 18px; color:var(--muted); font-weight:500; }
 
-  .search-box{ position:relative; max-width:420px; margin:0 0 8px; }
-  .search-box svg{ position:absolute; left:14px; top:50%; transform:translateY(-50%); width:18px; height:18px; color:var(--muted); pointer-events:none; }
+  /* Buscador con botón de limpiar (Clear) */
+  .search-box{ position:relative; max-width:420px; margin:0 0 8px; display:flex; align-items:center; }
+  .search-box svg.search-icon{ position:absolute; left:14px; top:50%; transform:translateY(-50%); width:18px; height:18px; color:var(--muted); pointer-events:none; }
   .search-box input{
-    width:100%; padding:13px 16px 13px 42px; border-radius:10px;
-    border:1.5px solid rgba(46,39,28,0.18); background:#fff;
-    font-family:'Work Sans', sans-serif; font-size:16px; color:var(--ink);
-    outline:none; transition:border-color .15s ease;
+    width:100%; padding:13px 40px 13px 42px; border-radius:10px;
+    border:2px solid rgba(28,27,25,0.22); background:#fff;
+    font-family:'Work Sans', sans-serif; font-size:16px; color:var(--texto-oscuro);
+    outline:none; transition:border-color .15s ease, box-shadow .15s ease;
   }
-  .search-box input::placeholder{ color:rgba(0,0,0,0.5); }
-  .search-box input:focus{ border-color:var(--celeste); box-shadow:0 0 0 3px rgba(108,172,228,0.28); }
+  .search-box input::placeholder{ color:rgba(28,27,25,0.5); }
+  .search-box input:focus{ border-color:var(--borde-ui); box-shadow:0 0 0 3px rgba(242,164,20,0.3); }
+  .search-clear{
+    display:none; position:absolute; right:12px; top:50%; transform:translateY(-50%);
+    background:rgba(28,27,25,0.12); border:none; border-radius:50%;
+    width:24px; height:24px; font-size:15px; font-weight:700; line-height:1;
+    color:var(--texto-oscuro); cursor:pointer; align-items:center; justify-content:center;
+    padding:0;
+  }
+  .search-clear.visible{ display:flex; }
+  @media (hover:hover){ .search-clear:hover{ background:var(--acento-secundario); color:#fff; } }
+
   .no-results{ display:none; padding:30px 0; color:var(--muted); font-size:15px; }
   .no-results.show{ display:block; }
 
+  /* Grilla de productos */
   .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
   @media (max-width:860px){ .grid{ grid-template-columns:repeat(2,1fr);} }
 
-  .card{ background:var(--card); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; border:1px solid rgba(46,39,28,0.16); box-shadow:0 1px 4px rgba(46,39,28,0.06); transition:transform .15s ease, box-shadow .15s ease; cursor:pointer; }
-  @media (hover:hover){ .card:hover{ transform:translateY(-4px); box-shadow:0 14px 26px rgba(46,39,28,0.14); } }
-  .card-art{ position:relative; aspect-ratio:1/1; overflow:hidden; background:#fff; border-bottom:1px solid rgba(46,39,28,0.08); }
+  .card{
+    background:var(--card);
+    border-radius:16px;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    border:2px solid var(--borde-ui);
+    box-shadow:0 3px 0 rgba(28,27,25,0.1);
+    transition:transform .15s ease, box-shadow .15s ease;
+    cursor:pointer;
+  }
+  @media (hover:hover){
+    .card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 8px 0 var(--borde-ui);
+    }
+  }
+  .card-art{ position:relative; aspect-ratio:1/1; overflow:hidden; background:#fff; border-bottom:1.5px solid rgba(28,27,25,0.1); }
   .card-art img{ width:100%; height:100%; object-fit:contain; object-position:center; padding:12px; }
   .card-body{ padding:18px 18px 20px; display:flex; flex-direction:column; gap:8px; flex:1; }
   .card-body .desc{ display:none; }
-  .card-body h3{ font-size:16px; }
+  .card-body h3{ font-size:16px; line-height:1.25; }
   .card-foot{ display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:auto; padding-top:6px; flex-wrap:wrap; }
-  .price{ margin-right:auto; font-weight:600; font-size:14.5px; color:var(--ink); }
+  
+  /* Precio en Terracota */
+  .price{ margin-right:auto; font-weight:700; font-size:15px; color:var(--acento-secundario); }
+  
   .detail-btn{
     font-family:inherit; font-weight:600; font-size:13px; background:transparent;
-    border:1.5px solid rgba(46,39,28,0.35); color:var(--ink);
+    border:1.5px solid rgba(28,27,25,0.35); color:var(--texto-oscuro);
     padding:8px 14px; border-radius:8px; cursor:pointer;
   }
-  @media (hover:hover){ .detail-btn:hover{ border-color:var(--ink); } }
-  .order-link{ font-weight:700; font-size:13px; background:var(--mustard); color:#000; padding:9px 16px; border-radius:8px; }
-  @media (hover:hover){ .order-link:hover{ background:#C27B12; } }
+  @media (hover:hover){ .detail-btn:hover{ border-color:var(--borde-ui); background:rgba(28,27,25,0.05); } }
+  .order-link{
+    font-size:13px;
+    padding:9px 16px;
+  }
+
   @media (max-width:760px), (pointer:coarse){
     .detail-btn, .order-link{ min-height:42px; display:inline-flex; align-items:center; justify-content:center; }
   }
@@ -156,68 +247,118 @@
     .card-body{ padding:12px 12px 14px; gap:6px; }
     .card-body h3{ font-size:14.5px; line-height:1.25; }
     .card-foot{ flex-direction:column; align-items:stretch; gap:8px; }
-    .price{ margin-right:0; font-size:14px; }
+    .price{ margin-right:0; font-size:14.5px; }
     .detail-btn{ display:none; }
-    .order-link{ width:100%; }
+    .order-link{ width:100%; text-align:center; }
   }
   .see-more{ margin-top:14px; }
-  .group-label{ scroll-margin-top:50px; }
   .grid:not(.expanded) .card.is-extra{ display:none; }
   #catalogo.searching .card.is-extra{ display:flex; }
-  .more-btn{ display:block; margin:24px auto 0; background:transparent; color:#000; border:1.5px solid #000; border-radius:8px; padding:12px 26px; font-family:inherit; font-weight:600; font-size:15px; cursor:pointer; }
-  @media (hover:hover){ .more-btn:hover{ background:var(--mustard); border-color:var(--mustard); } }
+  .more-btn{
+    display:block; margin:24px auto 0; background:transparent; color:var(--texto-oscuro);
+    border:2px solid var(--borde-ui); border-radius:8px; padding:12px 26px;
+    font-family:inherit; font-weight:700; font-size:15px; cursor:pointer;
+    transition:all .15s ease;
+  }
+  @media (hover:hover){
+    .more-btn:hover{
+      background:var(--acento-marca);
+      transform:translateY(-2px);
+      box-shadow:0 4px 0 var(--borde-ui);
+    }
+  }
   #catalogo.searching .more-btn{ display:none; }
-  .see-more a{ font-weight:600; font-size:14px; color:#000; }
-  @media (hover:hover){ .see-more a:hover{ text-decoration:underline; } }
+  .see-more a{ font-weight:600; font-size:14px; color:var(--acento-secundario); text-decoration:underline; text-underline-offset:4px; }
+  @media (hover:hover){ .see-more a:hover{ color:var(--acento-secundario-dark); } }
 
+  /* Pasos con números en Terracota */
   .steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
   @media (max-width:760px){ .steps{ grid-template-columns:1fr; } }
-  .step .num{ display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:10px; background:var(--mustard); color:#000; font-weight:700; font-size:16px; margin-bottom:12px; }
+  .step{
+    background:#fff;
+    padding:24px 20px;
+    border-radius:16px;
+    border:2px solid var(--borde-ui);
+    box-shadow:0 3px 0 rgba(28,27,25,0.08);
+  }
+  .step .num{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:38px; height:38px; border-radius:10px;
+    background:var(--acento-secundario); color:#fff;
+    border:2px solid var(--borde-ui); font-weight:700; font-size:16px; margin-bottom:12px;
+  }
   .step h3{ font-size:16.5px; margin-bottom:6px; }
-  .step p{ font-size:14.5px; color:var(--muted); margin:0; }
+  .step p{ font-size:14.5px; color:var(--muted); margin:0; line-height:1.5; }
 
-  footer{ padding:64px 0 40px; background:var(--paper-deep); }
-  .contact-grid{ display:block; padding-bottom:64px; }
+  /* Talles */
+  .talles-card{ background:var(--card); border-radius:18px; border:2px solid var(--borde-ui); box-shadow:0 3px 0 rgba(28,27,25,0.08); padding:1.6rem; max-width:500px; margin:0 auto; }
+  .talles-tipo{ margin:0 0 14px; text-align:center; font-family:'Oswald', sans-serif; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--texto-oscuro); font-size:15px; }
+  .talles-table{ width:100%; border-collapse:collapse; text-align:center; font-size:16px; }
+  .talles-table td{ white-space:nowrap; color:var(--texto-oscuro); font-weight:500; }
+  .talles-table th, .talles-table td{ padding:12px 10px; border-bottom:1px solid rgba(28,27,25,0.14); }
+  .talles-table thead th{ font-family:'Oswald', sans-serif; font-weight:600; font-size:14px; letter-spacing:.04em; text-transform:uppercase; color:#fff; background:var(--color-primario); border-bottom:none; }
+  .talles-table thead th:first-child{ border-radius:8px 0 0 0; }
+  .talles-table thead th:last-child{ border-radius:0 8px 0 0; }
+  .talles-table tbody th{ font-weight:700; color:var(--texto-oscuro); }
+  .talles-table tbody tr:last-child th, .talles-table tbody tr:last-child td{ border-bottom:none; }
+  .talles-table tbody tr:nth-child(even){ background:rgba(234,225,203,0.5); }
+  .talles-nota{ margin:14px 0 0; font-size:13px; font-style:italic; color:var(--muted); text-align:center; }
+
+  /* Footer con íconos monocromáticos y orden invertido */
+  footer{ padding:64px 0 40px; background:#E5DCBE; border-top:2px solid var(--borde-ui); }
+  footer .section-head h2{ color:var(--texto-oscuro); }
+  .contact-grid{ display:block; padding-bottom:54px; }
   .foot-info{ display:flex; flex-direction:column; align-items:flex-start; text-align:left; }
   .contact-list{ display:flex; flex-direction:row; flex-wrap:wrap; align-items:center; gap:18px 44px; }
   @media (max-width:640px){ .contact-list{ flex-direction:column; align-items:flex-start; gap:18px; } }
-  .contact-row{ display:flex; align-items:center; gap:10px; font-weight:500; font-size:16px; color:var(--muted); }
-  .contact-row img{ width:26px; height:26px; display:block; }
-  @media (hover:hover){ a.contact-row:hover{ color:#000; } }
-  .contact-place{ font-weight:500; font-size:16px; color:var(--muted); }
-  .fine-print{ padding-top:20px; border-top:1px solid rgba(46,39,28,0.14); font-size:13px; color:var(--muted); text-align:center; }
+  .contact-row{
+    display:flex; align-items:center; gap:10px; font-weight:600; font-size:16px; color:var(--texto-oscuro);
+    transition:color .15s ease;
+  }
+  .contact-icon{
+    width:36px; height:36px; display:inline-flex; align-items:center; justify-content:center;
+    background:transparent; border:2px solid var(--borde-ui); border-radius:10px; color:var(--texto-oscuro);
+  }
+  .contact-icon svg{ width:18px; height:18px; fill:currentColor; }
+  @media (hover:hover){
+    a.contact-row:hover{ color:var(--acento-secundario); }
+    a.contact-row:hover .contact-icon{ background:var(--acento-marca); border-color:var(--borde-ui); }
+  }
+  .contact-place{
+    display:flex; align-items:center; gap:8px; font-weight:600; font-size:16px; color:var(--texto-oscuro);
+  }
+  .fine-print{ padding-top:20px; border-top:1px solid rgba(28,27,25,0.14); font-size:13px; color:var(--muted); text-align:center; }
 
-  /* ---- modal de detalle de producto ---- */
+  /* Modal de detalle */
   .modal-overlay{
     display:none; position:fixed; inset:0; z-index:100;
-    background:rgba(46,39,28,0.65);
+    background:rgba(28,27,25,0.65);
     align-items:center; justify-content:center; padding:24px;
   }
   .modal-overlay.open{ display:flex; }
   .modal-box{
     background:var(--card); border-radius:20px; overflow:hidden;
     width:100%; max-width:760px; position:relative;
-    box-shadow:0 20px 50px rgba(0,0,0,0.3);
+    border:2px solid var(--borde-ui);
+    box-shadow:0 20px 50px rgba(28,27,25,0.3);
   }
   .modal-scroll{ display:grid; grid-template-columns:1fr; gap:0; max-height:90vh; max-height:90dvh; overflow-y:auto; overscroll-behavior:contain; }
   @media (min-width:700px){ .modal-scroll{ grid-template-columns:1fr 1fr; gap:26px; padding:20px; } }
   .modal-close{
     position:absolute; top:12px; right:12px; z-index:3;
-    background:#fff; border:none; border-radius:50%;
+    background:#fff; border:2px solid var(--borde-ui); border-radius:50%;
     width:40px; height:40px; font-size:24px; line-height:1;
-    cursor:pointer; color:var(--ink); box-shadow:0 2px 8px rgba(46,39,28,0.25);
+    cursor:pointer; color:var(--texto-oscuro); box-shadow:0 2px 8px rgba(28,27,25,0.25);
   }
   @media (min-width:700px){
-    .modal-close{ top:18px; right:20px; width:30px; height:30px; background:transparent; box-shadow:none; font-size:26px; }
-    @media (hover:hover){ .modal-close:hover{ background:rgba(46,39,28,0.08); } }
+    .modal-close{ top:18px; right:20px; width:32px; height:32px; box-shadow:none; font-size:24px; }
   }
-  /* foto: se ve completa, con esquinas redondeadas */
-  .modal-media{ position:relative; display:block; background:#fff; aspect-ratio:4/5; width:100%; max-height:80dvh; border-radius:14px; overflow:hidden; border:1px solid rgba(46,39,28,0.1); }
-  @media (max-width:699px){ .modal-media{ aspect-ratio:1/1; max-height:46dvh; border-radius:0; border:none; border-bottom:1px solid rgba(46,39,28,0.1); } }
+  .modal-media{ position:relative; display:block; background:#fff; aspect-ratio:4/5; width:100%; max-height:80dvh; border-radius:14px; overflow:hidden; border:1px solid rgba(28,27,25,0.1); }
+  @media (max-width:699px){ .modal-media{ aspect-ratio:1/1; max-height:46dvh; border-radius:0; border:none; border-bottom:1px solid rgba(28,27,25,0.1); } }
   @media (hover:hover) and (pointer:fine){
     .modal-media{ cursor:zoom-in; }
     .modal-media.zoomed{ cursor:zoom-out; }
-    .modal-media::after{ content:'Clic para ampliar'; position:absolute; left:10px; bottom:10px; z-index:2; font-size:12px; font-weight:600; color:var(--muted); background:rgba(255,253,248,0.94); padding:4px 11px; border-radius:999px; box-shadow:0 1px 6px rgba(46,39,28,0.22); pointer-events:none; }
+    .modal-media::after{ content:'Clic para ampliar'; position:absolute; left:10px; bottom:10px; z-index:2; font-size:12px; font-weight:600; color:var(--muted); background:rgba(255,253,248,0.94); padding:4px 11px; border-radius:999px; box-shadow:0 1px 6px rgba(28,27,25,0.22); pointer-events:none; }
     .modal-media.zoomed::after{ display:none; }
     .modal-img{ transition:transform .2s ease; }
     .modal-media.zoomed .modal-img{ transform:scale(2.4); }
@@ -226,52 +367,38 @@
   .modal-info{ display:flex; flex-direction:column; gap:10px; padding:6px 0 0; }
   @media (max-width:699px){ .modal-info{ padding:20px 20px 22px; } }
   .modal-info h3{ font-size:clamp(23px,3vw,28px); line-height:1.15; padding-right:34px; }
-  .modal-info .price{ font-size:22px; font-weight:600; color:var(--celeste-text); }
+  .modal-info .price{ font-size:24px; font-weight:700; color:var(--acento-secundario); }
   .modal-text{ display:flex; flex-direction:column; gap:12px; margin-top:6px; }
   .modal-text p{ margin:0; font-size:15.5px; line-height:1.5; color:var(--muted); }
   .modal-order{
     margin-top:auto; text-align:center; font-weight:700; font-size:16px;
-    background:var(--mustard); color:#000; padding:15px 26px; border-radius:999px;
+    padding:14px 26px; border-radius:8px;
   }
-  @media (max-width:699px){ .modal-order{ margin-top:10px; min-height:48px; display:flex; align-items:center; justify-content:center; } }
+  @media (max-width:699px){ .modal-order{ margin-top:14px; min-height:48px; display:flex; align-items:center; justify-content:center; } }
   @media (max-width:560px){ .modal-overlay{ padding:12px; } }
-  @media (hover:hover){ .modal-order:hover{ background:#C27B12; } }
   body.modal-open{ overflow:hidden; }
 
-  /* ---- galería (flechas y puntitos) ---- */
-  .gal-arrow{ position:absolute; top:50%; transform:translateY(-50%); z-index:2; width:34px; height:34px; border-radius:50%; border:none; background:rgba(255,253,248,0.94); box-shadow:0 1px 6px rgba(46,39,28,0.28); font-size:20px; line-height:1; color:#000; cursor:pointer; padding:0 0 3px; }
-  @media (hover:hover){ .gal-arrow:hover{ background:#fff; } }
+  /* Galería */
+  .gal-arrow{ position:absolute; top:50%; transform:translateY(-50%); z-index:2; width:34px; height:34px; border-radius:50%; border:1.5px solid var(--borde-ui); background:rgba(255,253,248,0.96); box-shadow:0 1px 6px rgba(28,27,25,0.25); font-size:20px; line-height:1; color:var(--texto-oscuro); cursor:pointer; padding:0 0 3px; }
+  @media (hover:hover){ .gal-arrow:hover{ background:var(--acento-marca); } }
   .gal-arrow.prev{ left:8px; } .gal-arrow.next{ right:8px; }
   .gal-dots{ position:absolute; left:0; right:0; bottom:10px; display:flex; justify-content:center; gap:6px; pointer-events:none; }
-  .gal-dots i{ width:7px; height:7px; border-radius:50%; background:rgba(46,39,28,0.25); }
-  .gal-dots i.on{ background:#000; }
+  .gal-dots i{ width:7px; height:7px; border-radius:50%; background:rgba(28,27,25,0.25); }
+  .gal-dots i.on{ background:var(--texto-oscuro); }
 
-  /* ---- botón flotante de WhatsApp ---- */
+  /* WhatsApp Flotante */
   .wa-float{
-    position:fixed; right:16px; bottom:calc(16px + env(safe-area-inset-bottom, 0px)); z-index:90;
-    width:50px; height:50px; border-radius:50%;
+    position:fixed; right:18px; bottom:calc(18px + env(safe-area-inset-bottom, 0px)); z-index:90;
+    width:52px; height:52px; border-radius:50%;
     background:#25D366; color:#fff;
+    border:2px solid var(--borde-ui);
     display:flex; align-items:center; justify-content:center;
-    box-shadow:0 6px 16px rgba(0,0,0,0.28);
+    box-shadow:0 4px 12px rgba(28,27,25,0.25);
     transition:transform .15s ease, box-shadow .15s ease;
   }
-  @media (hover:hover){ .wa-float:hover{ transform:scale(1.08); box-shadow:0 10px 22px rgba(0,0,0,0.32); } }
+  @media (hover:hover){ .wa-float:hover{ transform:scale(1.08) translateY(-2px); box-shadow:0 8px 18px rgba(28,27,25,0.3); } }
   .wa-float svg{ width:28px; height:28px; display:block; }
   body.modal-open .wa-float{ display:none; }
-
-  .talles-card{ background:var(--card); border-radius:20px; border:1.5px solid rgba(46,39,28,0.22); box-shadow:0 2px 8px rgba(46,39,28,0.08); padding:1.5rem; max-width:500px; margin:0 auto; }
-
-  .talles-tipo{ margin:0 0 14px; text-align:center; font-family:'Oswald', sans-serif; font-weight:500; letter-spacing:.04em; text-transform:uppercase; color:#000; font-size:15px; }
-  .talles-table{ width:100%; border-collapse:collapse; text-align:center; font-size:16px; }
-  .talles-table td{ white-space:nowrap; color:var(--ink); font-weight:500; }
-  .talles-table th, .talles-table td{ padding:12px 10px; border-bottom:1px solid rgba(46,39,28,0.14); }
-  .talles-table thead th{ font-family:'Oswald', sans-serif; font-weight:600; font-size:14px; letter-spacing:.04em; text-transform:uppercase; color:#000; background:#EADFC8; border-bottom:none; }
-  .talles-table thead th:first-child{ border-radius:8px 0 0 0; }
-  .talles-table thead th:last-child{ border-radius:0 8px 0 0; }
-  .talles-table tbody th{ font-weight:700; color:#000; }
-  .talles-table tbody tr:last-child th, .talles-table tbody tr:last-child td{ border-bottom:none; }
-  .talles-table tbody tr:nth-child(even){ background:rgba(243,235,220,0.55); }
-  .talles-nota{ margin:14px 0 0; font-size:13px; font-style:italic; color:var(--muted); text-align:center; }
 </style>
 </head>
 <body>
@@ -285,7 +412,7 @@
       <a href="#proceso">¿Cómo pedir?</a>
       <a href="#contacto">Contacto</a>
     </div>
-    <a class="nav-cta" href="https://wa.me/5493624046282?text=Hola%20Buenas!%20quiero%20consultar%20por%20un%20producto" target="_blank" rel="noopener">Escribinos</a>
+    <a class="btn-yellow nav-cta" href="https://wa.me/5493624046282?text=¡Hola!%20Quiero%20hacer%20una%20consulta" target="_blank" rel="noopener">Escribinos</a>
     <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-controls="nav-links" aria-expanded="false">&#9776;</button>
   </div>
 </nav>
@@ -293,12 +420,16 @@
 <header class="hero">
   <div class="wrap">
     <div>
-      <span class="tagline">Hecho acá, con orgullo <svg class="flag" viewBox="0 0 30 20" role="img" aria-label="Argentina"><rect width="30" height="20" fill="#74ACDF"/><rect y="6.67" width="30" height="6.66" fill="#fff"/><circle cx="15" cy="10" r="2.3" fill="#F6B40E"/></svg></span>
+      <span class="tagline">
+        Hecho acá, con orgullo
+        <svg class="flag" viewBox="0 0 30 20" role="img" aria-label="Bandera Argentina"><rect width="30" height="20" fill="#74ACDF"/><rect y="6.67" width="30" height="6.66" fill="#fff"/><circle cx="15" cy="10" r="2.3" fill="#F6B40E"/></svg>
+      </span>
       <h1>Estampamos tu idea</h1>
-      <p>Remeras, chombas, buzos y tazas personalizadas. Mandanos tu diseño, foto o idea y nosotros nos encargamos del resto.</p>
+      <p>Remeras estampadas en DTF textil y tazas de cerámica personalizadas. Elegí del catálogo o mandanos tu foto, frase o diseño propio.</p>
+      
       <div class="hero-actions">
-        <a class="btn btn-solid" href="#catalogo">Ver catálogo</a>
-        <a class="btn btn-outline" href="#proceso">¿Cómo pedir?</a>
+        <a class="btn btn-yellow" href="#catalogo">Ver catálogo</a>
+        <a class="btn btn-outline" href="https://wa.me/5493624046282?text=¡Hola%20Febo%20Asoma!%20Tengo%20un%20diseño/foto%20propia%20y%20quiero%20consultar%20para%20estampar" target="_blank" rel="noopener">Mandanos tu propio diseño</a>
       </div>
     </div>
     <div class="hero-photo">
@@ -310,26 +441,29 @@
 <section class="section" id="catalogo">
   <div class="wrap">
     <div class="section-head">
-      <h2>Catálogo</h2>
-      <p>Estos son algunos trabajos y diseños que tenemos disponibles.</p>
-      <p>Elegí el que más te guste o mandanos tu propia idea. Coordinamos diseño, color y talle por WhatsApp.</p>
+      <h2>Catálogo de Diseños</h2>
+      <p>Elegí uno de nuestros diseños listos para estampar o usalos de inspiración para crear el tuyo.</p>
+      <p>Coordinamos color, talle y detalles directo por WhatsApp para armar tu muestra digital.</p>
     </div>
 
     <div class="search-box">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
       <input type="text" id="catalog-search" aria-label="Buscar en el catálogo" autocomplete="off" enterkeyhint="search" placeholder="Buscá un diseño, ej: Messi, Malvinas, Taza...">
+      <button type="button" class="search-clear" id="search-clear" aria-label="Limpiar búsqueda">&times;</button>
     </div>
     <p class="no-results" id="no-results">No encontramos productos que coincidan con tu búsqueda.</p>
 
-    <h3 class="group-label">Remeras estampadas en DTF</h3>
-    <p class="group-intro">Algunos trabajos que hicimos. También podemos estampar tu propio diseño. Si buscás chombas o buzos, consultanos.</p>
+    <div class="group-header">
+      <h3 class="group-label">Remeras estampadas en DTF</h3>
+      <p class="group-intro">Algodón peinado premium 24.1 con estampado DTF de alta calidad. También estampamos tu propio diseño. Consultanos por chombas o buzos.</p>
+    </div>
     <div class="grid">
       <div class="card">
         <div class="card-art"><img loading="lazy" decoding="async" src="images/remera-malvinas-blanca.jpg" alt="Remera blanca estampada 'Las Malvinas son Argentinas'"></div>
         <div class="card-body">
           <h3>Las Malvinas son Argentinas</h3>
           <p class="desc">DTF · Espalda · Blanca</p>
-          <div class="card-foot"><span class="price">$22.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20consultar%20por%20la%20remera%20Las%20Malvinas%20son%20Argentinas" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$22.000</span><a class="btn-yellow order-link" href="https://wa.me/5493624046282?text=¡Hola%20Febo%20Asoma!%20Quiero%20pedir%20la%20remera%20Las%20Malvinas%20son%20Argentinas" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card">
@@ -337,7 +471,7 @@
         <div class="card-body">
           <h3>4ta Estrella</h3>
           <p class="desc">DTF · Frente · Negra</p>
-          <div class="card-foot"><span class="price">$22.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20consultar%20por%20la%20remera%204ta%20Estrella" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$22.000</span><a class="btn-yellow order-link" href="https://wa.me/5493624046282?text=¡Hola%20Febo%20Asoma!%20Quiero%20pedir%20la%20remera%204ta%20Estrella" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card" data-text="Diseño con motivos bien argentinos: mate, sol, empanada y ruta 40.">
@@ -345,7 +479,7 @@
         <div class="card-body">
           <h3>Argentina Ilustrada</h3>
           <p class="desc">DTF · Frente · Blanca</p>
-          <div class="card-foot"><span class="price">$22.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20consultar%20por%20la%20remera%20Argentina%20Ilustrada" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$22.000</span><a class="btn-yellow order-link" href="https://wa.me/5493624046282?text=¡Hola%20Febo%20Asoma!%20Quiero%20pedir%20la%20remera%20Argentina%20Ilustrada" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card" data-imgs="remera-maradona-blanca.jpg,remera-diego-cara.png">
@@ -353,7 +487,7 @@
         <div class="card-body">
           <h3>Maradona</h3>
           <p class="desc">DTF · Blanca</p>
-          <div class="card-foot"><span class="price">$22.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20consultar%20por%20la%20remera%20de%20Maradona" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$22.000</span><a class="btn-yellow order-link" href="https://wa.me/5493624046282?text=¡Hola%20Febo%20Asoma!%20Quiero%20pedir%20la%20remera%20de%20Maradona" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card">
@@ -361,7 +495,7 @@
         <div class="card-body">
           <h3>Messi</h3>
           <p class="desc">DTF · Espalda · Negra</p>
-          <div class="card-foot"><span class="price">$22.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20consultar%20por%20la%20remera%20de%20Messi" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$22.000</span><a class="btn-yellow order-link" href="https://wa.me/5493624046282?text=¡Hola%20Febo%20Asoma!%20Quiero%20pedir%20la%20remera%20de%20Messi" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card">
@@ -369,7 +503,7 @@
         <div class="card-body">
           <h3>Breaking Bad</h3>
           <p class="desc">DTF · Frente · Blanca</p>
-          <div class="card-foot"><span class="price">$22.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20consultar%20por%20la%20remera%20Breaking%20Bad" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$22.000</span><a class="btn-yellow order-link" href="https://wa.me/5493624046282?text=¡Hola%20Febo%20Asoma!%20Quiero%20pedir%20la%20remera%20Breaking%20Bad" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card">
@@ -377,7 +511,7 @@
         <div class="card-body">
           <h3>Charly García - Clics Modernos</h3>
           <p class="desc">DTF · Frente · Negra</p>
-          <div class="card-foot"><span class="price">$22.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20consultar%20por%20la%20remera%20Charly%20Garc%C3%ADa" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$22.000</span><a class="btn-yellow order-link" href="https://wa.me/5493624046282?text=¡Hola%20Febo%20Asoma!%20Quiero%20pedir%20la%20remera%20Charly%20Garc%C3%ADa" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card">
@@ -385,7 +519,7 @@
         <div class="card-body">
           <h3>El Viaje de Chihiro</h3>
           <p class="desc">DTF · Frente · Blanca</p>
-          <div class="card-foot"><span class="price">$22.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20consultar%20por%20la%20remera%20Chihiro" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$22.000</span><a class="btn-yellow order-link" href="https://wa.me/5493624046282?text=¡Hola%20Febo%20Asoma!%20Quiero%20pedir%20la%20remera%20Chihiro" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card">
@@ -393,7 +527,7 @@
         <div class="card-body">
           <h3>Contra el Trabajo y el Capital</h3>
           <p class="desc">DTF · Frente · Blanca</p>
-          <div class="card-foot"><span class="price">$22.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20consultar%20por%20la%20remera%20Contra%20el%20trabajo%20y%20el%20capital" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$22.000</span><a class="btn-yellow order-link" href="https://wa.me/5493624046282?text=¡Hola%20Febo%20Asoma!%20Quiero%20pedir%20la%20remera%20Contra%20el%20trabajo%20y%20el%20capital" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card">
@@ -401,7 +535,7 @@
         <div class="card-body">
           <h3>Mago Oscuro</h3>
           <p class="desc">DTF · Frente · Negra</p>
-          <div class="card-foot"><span class="price">$22.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20consultar%20por%20la%20remera%20Mago%20Oscuro" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$22.000</span><a class="btn-yellow order-link" href="https://wa.me/5493624046282?text=¡Hola%20Febo%20Asoma!%20Quiero%20pedir%20la%20remera%20Mago%20Oscuro" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card">
@@ -409,7 +543,7 @@
         <div class="card-body">
           <h3>67</h3>
           <p class="desc">DTF · Frente · Blanca</p>
-          <div class="card-foot"><span class="price">$22.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20consultar%20por%20la%20remera%2067" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$22.000</span><a class="btn-yellow order-link" href="https://wa.me/5493624046282?text=¡Hola%20Febo%20Asoma!%20Quiero%20pedir%20la%20remera%2067" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card">
@@ -417,21 +551,23 @@
         <div class="card-body">
           <h3>Marolio</h3>
           <p class="desc">DTF · Frente · Blanca</p>
-          <div class="card-foot"><span class="price">$22.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20consultar%20por%20la%20remera%20Marolio" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$22.000</span><a class="btn-yellow order-link" href="https://wa.me/5493624046282?text=¡Hola%20Febo%20Asoma!%20Quiero%20pedir%20la%20remera%20Marolio" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
     </div>
     <div class="see-more"><a href="https://instagram.com/feboasoma_ch" target="_blank" rel="noopener">Ver más remeras en Instagram →</a></div>
 
-    <h3 class="group-label">Tazas de cerámica sublimadas</h3>
-    <p class="group-intro">Elegí un diseño o mandanos tu foto, frase o idea.</p>
+    <div class="group-header">
+      <h3 class="group-label">Tazas de cerámica sublimadas</h3>
+      <p class="group-intro">Cerámica importada apta para microondas. Elegí un diseño o mandanos tu foto, frase o meme.</p>
+    </div>
     <div class="grid">
       <div class="card">
         <div class="card-art"><img loading="lazy" decoding="async" src="images/taza-pollos-hermanos.jpg" alt="Taza sublimada con diseño Los Pollos Hermanos"></div>
         <div class="card-body">
           <h3>Taza Los Pollos Hermanos</h3>
           <p class="desc">Sublimado.</p>
-          <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20consultar%20por%20la%20taza%20Los%20Pollos%20Hermanos" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$12.000</span><a class="btn-yellow order-link" href="https://wa.me/5493624046282?text=¡Hola%20Febo%20Asoma!%20Quiero%20pedir%20la%20taza%20Los%20Pollos%20Hermanos" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card">
@@ -439,7 +575,7 @@
         <div class="card-body">
           <h3>Taza Better Call Saul</h3>
           <p class="desc">Sublimado.</p>
-          <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20consultar%20por%20la%20taza%20Better%20Call%20Saul" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$12.000</span><a class="btn-yellow order-link" href="https://wa.me/5493624046282?text=¡Hola%20Febo%20Asoma!%20Quiero%20pedir%20la%20taza%20Better%20Call%20Saul" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card" data-imgs="taza-pokemon.png,taza-pokemon2.png">
@@ -447,7 +583,7 @@
         <div class="card-body">
           <h3>Tazas Pokémon</h3>
           <p class="desc">Sublimado.</p>
-          <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20consultar%20por%20la%20taza%20Pok%C3%A9mon" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$12.000</span><a class="btn-yellow order-link" href="https://wa.me/5493624046282?text=¡Hola%20Febo%20Asoma!%20Quiero%20pedir%20la%20taza%20Pok%C3%A9mon" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card" data-imgs="taza-charly-garcia.png,taza-say-no-more.png">
@@ -455,7 +591,7 @@
         <div class="card-body">
           <h3>Tazas Charly García</h3>
           <p class="desc">Sublimado.</p>
-          <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20consultar%20por%20la%20taza%20Charly%20Garc%C3%ADa" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$12.000</span><a class="btn-yellow order-link" href="https://wa.me/5493624046282?text=¡Hola%20Febo%20Asoma!%20Quiero%20pedir%20la%20taza%20Charly%20Garc%C3%ADa" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card">
@@ -463,7 +599,7 @@
         <div class="card-body">
           <h3>Taza Almendra</h3>
           <p class="desc">Sublimado.</p>
-          <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20consultar%20por%20la%20taza%20Almendra" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$12.000</span><a class="btn-yellow order-link" href="https://wa.me/5493624046282?text=¡Hola%20Febo%20Asoma!%20Quiero%20pedir%20la%20taza%20Almendra" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card">
@@ -471,7 +607,7 @@
         <div class="card-body">
           <h3>Taza Grey's Anatomy</h3>
           <p class="desc">Sublimado.</p>
-          <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20consultar%20por%20la%20taza%20Greys%20Anatomy" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$12.000</span><a class="btn-yellow order-link" href="https://wa.me/5493624046282?text=¡Hola%20Febo%20Asoma!%20Quiero%20pedir%20la%20taza%20Greys%20Anatomy" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card">
@@ -479,7 +615,7 @@
         <div class="card-body">
           <h3>Taza Dragon Ball</h3>
           <p class="desc">Sublimado.</p>
-          <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20consultar%20por%20la%20taza%20Dragon%20Ball" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$12.000</span><a class="btn-yellow order-link" href="https://wa.me/5493624046282?text=¡Hola%20Febo%20Asoma!%20Quiero%20pedir%20la%20taza%20Dragon%20Ball" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card">
@@ -487,7 +623,7 @@
         <div class="card-body">
           <h3>Taza Jujutsu Kaisen</h3>
           <p class="desc">Sublimado.</p>
-          <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20consultar%20por%20la%20taza%20Jujutsu" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$12.000</span><a class="btn-yellow order-link" href="https://wa.me/5493624046282?text=¡Hola%20Febo%20Asoma!%20Quiero%20pedir%20la%20taza%20Jujutsu" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card">
@@ -495,7 +631,7 @@
         <div class="card-body">
           <h3>Taza Game of Thrones - Stark</h3>
           <p class="desc">Sublimado.</p>
-          <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20consultar%20por%20la%20taza%20Game%20of%20Thrones%20Stark" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$12.000</span><a class="btn-yellow order-link" href="https://wa.me/5493624046282?text=¡Hola%20Febo%20Asoma!%20Quiero%20pedir%20la%20taza%20Game%20of%20Thrones%20Stark" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card">
@@ -503,7 +639,7 @@
         <div class="card-body">
           <h3>Taza Game of Thrones - Targaryen</h3>
           <p class="desc">Sublimado.</p>
-          <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20consultar%20por%20la%20taza%20Game%20of%20Thrones%20Targaryen" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$12.000</span><a class="btn-yellow order-link" href="https://wa.me/5493624046282?text=¡Hola%20Febo%20Asoma!%20Quiero%20pedir%20la%20taza%20Game%20of%20Thrones%20Targaryen" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card">
@@ -511,7 +647,7 @@
         <div class="card-body">
           <h3>Taza Rick and Morty</h3>
           <p class="desc">Sublimado.</p>
-          <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20consultar%20por%20la%20taza%20Rick" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$12.000</span><a class="btn-yellow order-link" href="https://wa.me/5493624046282?text=¡Hola%20Febo%20Asoma!%20Quiero%20pedir%20la%20taza%20Rick" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card">
@@ -519,7 +655,7 @@
         <div class="card-body">
           <h3>Taza This is Fine</h3>
           <p class="desc">Sublimado.</p>
-          <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20consultar%20por%20la%20taza%20This%20is%20Fine" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$12.000</span><a class="btn-yellow order-link" href="https://wa.me/5493624046282?text=¡Hola%20Febo%20Asoma!%20Quiero%20pedir%20la%20taza%20This%20is%20Fine" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
       <div class="card">
@@ -527,7 +663,7 @@
         <div class="card-body">
           <h3>Taza Do It For Him</h3>
           <p class="desc">Sublimado.</p>
-          <div class="card-foot"><span class="price">$12.000</span><a class="order-link" href="https://wa.me/5493624046282?text=Hola!%20Quiero%20consultar%20por%20la%20taza%20Do%20it%20for%20him" target="_blank" rel="noopener">Pedir</a></div>
+          <div class="card-foot"><span class="price">$12.000</span><a class="btn-yellow order-link" href="https://wa.me/5493624046282?text=¡Hola%20Febo%20Asoma!%20Quiero%20pedir%20la%20taza%20Do%20it%20for%20him" target="_blank" rel="noopener">Pedir</a></div>
         </div>
       </div>
     </div>
@@ -568,9 +704,21 @@
         <p>Todo el pedido se coordina por WhatsApp o Instagram.</p>
       </div>
       <div class="steps">
-        <div class="step"><span class="num">1</span><h3>Elegís el diseño</h3><p>Elegís algunos de nuestros diseños o nos mandás una imagen, foto, frase o idea.</p></div>
-        <div class="step"><span class="num">2</span><h3>Coordinamos</h3><p>Definimos prenda, talle, color y cantidad.</p></div>
-        <div class="step"><span class="num">3</span><h3>Producción y entrega</h3><p>Te enviamos una vista previa para que apruebes el diseño. Después preparamos tu pedido y coordinamos la entrega.</p></div>
+        <div class="step">
+          <span class="num">1</span>
+          <h3>Elegís o mandás tu idea</h3>
+          <p>Elegís un modelo de nuestro catálogo o nos mandás tu imagen, frase o foto favorita para estampar.</p>
+        </div>
+        <div class="step">
+          <span class="num">2</span>
+          <h3>Muestra digital y talle</h3>
+          <p>Definimos prenda, talle y te armamos una previsualización digital para que veas cómo queda antes de producir.</p>
+        </div>
+        <div class="step">
+          <span class="num">3</span>
+          <h3>Producción y retiro</h3>
+          <p>Aprobás el diseño, estampamos con la máxima calidad y coordinamos la entrega.</p>
+        </div>
       </div>
   </div>
 </section>
@@ -579,17 +727,29 @@
   <div class="wrap">
     <div class="section-head">
       <h2>Contacto</h2>
+      <p>Hacé realidad tu remera o taza personalizada. Escribinos para consultas, presupuestos o para enviarnos tu archivo.</p>
     </div>
     <div class="contact-grid">
       <div class="foot-info">
         <div class="contact-list">
-          <a class="contact-row" href="https://instagram.com/feboasoma_ch" target="_blank" rel="noopener">
-            <img src="images/instagram.png" alt="Instagram"> @feboasoma_ch
-          </a>
           <a class="contact-row" href="https://wa.me/5493624046282" target="_blank" rel="noopener">
-            <img src="images/whatsapp.png" alt="WhatsApp"> 362 4046282
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12.04 2C6.5 2 2 6.5 2 12.04c0 1.77.46 3.5 1.34 5.02L2 22l5.05-1.32a10 10 0 0 0 4.99 1.32C17.58 22 22 17.5 22 11.96 22 6.46 17.58 2 12.04 2zm0 18.17a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3 .79.8-2.92-.2-.31a8.2 8.2 0 0 1-1.26-4.36c0-4.52 3.7-8.2 8.25-8.2 4.53 0 8.2 3.68 8.2 8.2 0 4.53-3.68 8.13-8.3 8.13z"/></svg>
+            </span>
+            362 4046282
           </a>
-          <span class="contact-place">Resistencia, Chaco</span>
+          <a class="contact-row" href="https://instagram.com/feboasoma_ch" target="_blank" rel="noopener">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </span>
+            @feboasoma_ch
+          </a>
+          <div class="contact-place">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </span>
+            Resistencia, Chaco
+          </div>
         </div>
       </div>
     </div>
@@ -597,7 +757,7 @@
   </div>
 </footer>
 
-<a class="wa-float" href="https://wa.me/5493624046282?text=Hola%20Buenas!%20quiero%20consultar%20por%20un%20producto" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+<a class="wa-float" href="https://wa.me/5493624046282?text=¡Hola!%20Quiero%20hacer%20una%20consulta" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.04 2C6.5 2 2 6.5 2 12.04c0 1.77.46 3.5 1.34 5.02L2 22l5.05-1.32a10 10 0 0 0 4.99 1.32C17.58 22 22 17.5 22 11.96 22 6.46 17.58 2 12.04 2zm0 18.17a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3 .79.8-2.92-.2-.31a8.2 8.2 0 0 1-1.26-4.36c0-4.52 3.7-8.2 8.25-8.2 4.53 0 8.2 3.68 8.2 8.2 0 4.53-3.68 8.13-8.3 8.13z"/></svg>
 </a>
 
@@ -617,7 +777,7 @@
       <h3 id="modal-title"></h3>
       <div class="price" id="modal-price"></div>
       <div class="modal-text" id="modal-desc"></div>
-      <a class="modal-order" id="modal-order" href="#" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+      <a class="btn-yellow modal-order" id="modal-order" href="#" target="_blank" rel="noopener">Pedir este diseño por WhatsApp</a>
     </div>
     </div>
   </div>
@@ -638,7 +798,6 @@
   var media = document.querySelector('.modal-media');
   var canZoom = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
 
-  /* zoom en PC: clic para ampliar, mover el mouse para recorrer la foto, clic para volver */
   function setZoom(on){
     media.classList.toggle('zoomed', on);
     if (!on) modalImg.style.transformOrigin = '';
@@ -669,17 +828,21 @@
     updateModalNav();
   }
 
-  /* Texto de la ventana de cada tarjeta.
-     - Texto por defecto de remeras y tazas: se edita acá.
-     - Texto propio de un diseño: agregale data-text="..." a su <div class="card"> (se muestra antes del texto por defecto; con | se separan párrafos). */
   var DEFAULT_TEXT = {
-    remera: ['Estampado en DTF sobre remera de algodón peinado premium 24.1.'],
-    taza: ['☕ Taza de cerámica importada blanca de alta calidad – 328ml.', '✅ Apta para microondas, lavavajillas y freezer.', '📦 Se entrega en bolsa individual, lista para regalar.']
+    remera: [
+      '👕 Remera confeccionada en Algodón Peinado 24.1',
+      '🎨 Estampado en DTF textil de alta definición con máxima resistencia a los lavados.'
+    ],
+    taza: [
+      '☕ Taza de cerámica importada blanca de alta calidad – 328ml.',
+      '✅ Apta para microondas, lavavajillas y freezer.',
+      '📦 Se entrega en bolsa individual, lista para regalar.'
+    ]
   };
   function textFor(card){
     var el = card.closest('.grid');
     el = el && el.previousElementSibling;
-    while (el && !el.classList.contains('group-label')) el = el.previousElementSibling;
+    while (el && !el.classList.contains('group-header')) el = el.previousElementSibling;
     var kind = el && /remera/i.test(el.textContent) ? 'remera' : 'taza';
     var own = card.dataset.text ? card.dataset.text.split('|').map(function(t){ return t.trim(); }).filter(Boolean) : [];
     return own.concat(DEFAULT_TEXT[kind]);
@@ -735,7 +898,7 @@
       });
     }
     card.addEventListener('click', function(e){
-      if (e.target.closest('.order-link') || e.target.closest('.detail-btn')) return; // esos botones ya tienen su propia acción
+      if (e.target.closest('.order-link') || e.target.closest('.detail-btn')) return;
       openModal(card);
     });
   });
@@ -752,7 +915,6 @@
       if (e.key === 'ArrowLeft') stepModal(-1);
       if (e.key === 'ArrowRight') stepModal(1);
       if (e.key === 'Tab'){
-        // el foco queda dentro del modal mientras está abierto
         var focusables = Array.prototype.filter.call(overlay.querySelectorAll('button, a[href]'), function(el){ return el.offsetParent !== null; });
         if (focusables.length){
           var first = focusables[0], last = focusables[focusables.length - 1];
@@ -764,28 +926,28 @@
   });
 })();
 
+/* Buscador con botón limpiar (Clear) */
 (function(){
   var input = document.getElementById('catalog-search');
+  var clearBtn = document.getElementById('search-clear');
   var noResults = document.getElementById('no-results');
-  var groups = Array.prototype.map.call(document.querySelectorAll('#catalogo .group-label'), function(label){
-    // entre el título del grupo y la grilla puede haber un texto introductorio
-    var next = label.nextElementSibling;
-    var intro = next.classList.contains('grid') ? null : next;
-    var grid = intro ? intro.nextElementSibling : next;
+  var groups = Array.prototype.map.call(document.querySelectorAll('#catalogo .group-header'), function(header){
+    var grid = header.nextElementSibling;
     return {
-      label: label,
-      intro: intro,
+      header: header,
       grid: grid,
       seeMore: grid.nextElementSibling
     };
   });
 
   function normalize(str){
-    return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    return str.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
   }
 
   function filter(){
-    var query = normalize(input.value.trim());
+    var val = input.value.trim();
+    var query = normalize(val);
+    clearBtn.classList.toggle('visible', val.length > 0);
     document.getElementById('catalogo').classList.toggle('searching', !!query);
     var anyVisible = false;
 
@@ -798,8 +960,7 @@
         if (match) groupHasMatch = true;
       });
       var show = !query || groupHasMatch;
-      group.label.style.display = show ? '' : 'none';
-      if (group.intro) group.intro.style.display = show ? '' : 'none';
+      group.header.style.display = show ? '' : 'none';
       group.grid.style.display = show ? '' : 'none';
       if (group.seeMore) group.seeMore.style.display = show ? '' : 'none';
       if (show) anyVisible = true;
@@ -809,9 +970,13 @@
   }
 
   input.addEventListener('input', filter);
+  clearBtn.addEventListener('click', function(){
+    input.value = '';
+    filter();
+    input.focus();
+  });
 })();
 
-/* menú del celular */
 (function(){
   var nav = document.querySelector('.nav');
   var btn = document.getElementById('nav-toggle');
@@ -825,7 +990,6 @@
   nav.querySelectorAll('.nav-links a').forEach(function(a){ a.addEventListener('click', function(){ setOpen(false); }); });
 })();
 
-/* galería en las tarjetas con data-imgs="foto1.jpg,foto2.jpg" */
 (function(){
   document.querySelectorAll('.card[data-imgs]').forEach(function(card){
     var files = card.dataset.imgs.split(',').map(function(f){ return 'images/' + f.trim(); });
@@ -849,17 +1013,16 @@
   });
 })();
 
-/* catálogo corto: se muestran las primeras 6 de cada grupo y un botón "Ver todas" */
 (function(){
   var LIMIT = 6;
-  document.querySelectorAll('#catalogo .group-label').forEach(function(label){
-    var grid = label.nextElementSibling;
-    while (grid && !grid.classList.contains('grid')) grid = grid.nextElementSibling;
-    if (!grid) return;
+  document.querySelectorAll('#catalogo .group-header').forEach(function(header){
+    var grid = header.nextElementSibling;
+    if (!grid || !grid.classList.contains('grid')) return;
     var cards = grid.querySelectorAll('.card');
     if (cards.length <= LIMIT) return;
     cards.forEach(function(card, i){ if (i >= LIMIT) card.classList.add('is-extra'); });
-    var noun = label.textContent.trim().split(' ')[0].toLowerCase();
+    var label = header.querySelector('.group-label');
+    var noun = label ? label.textContent.trim().split(' ')[0].toLowerCase() : 'productos';
     var btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'more-btn';
@@ -871,7 +1034,7 @@
       var open = grid.classList.toggle('expanded');
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       btn.textContent = open ? 'Ver menos' : textMore;
-      if (!open) label.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (!open) header.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 })();
